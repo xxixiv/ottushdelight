@@ -278,9 +278,9 @@ export default {
     toggleclass() {
       this.sidebar = !this.sidebar;
     },
-    handleResize() {
-      window.location.reload();
-    },
+   // handleResize() {
+     // window.location.reload();
+    //},
   },
   mounted() {
     window.addEventListener('resize', this.handleResize);
