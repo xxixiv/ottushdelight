@@ -79,29 +79,30 @@
 export default {
   name : 'AboutView',
   data() {
-    cardItems: [
-      {
-        src: '',
-        person: 'person 1',
-        skil: '',
-      },
-      {
-        src: '',
-        person: '',
-        skil: '',
-      },
-      {
-        src: '',
-        person: '',
-        skil: '',
-      },
-      {
-        src: '',
-        person: '',
-        skil: '',
-      }
-    ]
-  }
+  //   cardItems: [
+  //     {
+  //       src: '',
+  //       person: 'person 1',
+  //       skil: '',
+  //     },
+  //     {
+  //       src: '',
+  //       person: '',
+  //       skil: '',
+  //     },
+  //     {
+  //       src: '',
+  //       person: '',
+  //       skil: '',
+  //     },
+  //     {
+  //       src: '',
+  //       person: '',
+  //       skil: '',
+  //     }
+  //   ]
+  // }
 
-};
+}
+}
 </script>
