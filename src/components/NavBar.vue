@@ -128,19 +128,11 @@
     justify="center"
     align-content="center"
     class="">
-  <v-btn
-     v-for="(icons, index) in IconItems"
-    :key="index"
-    class="sm-ml-n1"
-    :a="icons.a"
-    >
-         <v-icon
-        :icon="icons.icon"
-        size="small"
-        class=""
-        style="cursor: pointer;"
-      ></v-icon>
-  </v-btn>
+    <v-btn v-for="(icons, index) in IconItems" :key="index" class="sm-ml-n1" style=" text-decoration: none;">
+      <a :href="icons.a" target="_blank" rel="noopener noreferrer" style="">
+        <v-icon :icon="icons.icon" size="small" class="" style="cursor: pointer;"></v-icon>
+      </a>
+    </v-btn>
       <!-- 
          justify="space-between"
     class="md-ml-12"
@@ -194,8 +186,8 @@
 .toggle{
   transform: scale(50%);
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   background: transparent;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
   border-radius: 10px;
@@ -265,8 +257,8 @@ export default {
           {icon: 'mdi-facebook', a: 'https://facebook.com' },
           {icon: 'mdi-instagram', a: 'https://instagram.com'},
           {icon: 'mdi-whatsapp', a: 'https://whatsapp.com'},
-          {icon: 'mdi-email', a: 'https//gmail.com', type: 'email'},
-          {icon: 'mdi-phone', a: '+2345879088', type: 'tel'}
+          { icon: 'mdi-email', a: 'mailto:example@example.com' },
+          { icon: 'mdi-phone', a: 'tel:+2345879088' }
      ],
      logoimages: [
       {src: "@/assets/logo b-bg.png", theme: "light"},
