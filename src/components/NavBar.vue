@@ -132,11 +132,11 @@
      v-for="(icons, index) in IconItems"
     :key="index"
     class="sm-ml-n1"
+    :a="icons.a"
     >
          <v-icon
         :icon="icons.icon"
         size="small"
-        :a="icons.a"
         class=""
         style="cursor: pointer;"
       ></v-icon>
@@ -282,6 +282,7 @@ export default {
      // window.location.reload();
     //},
   },
+  //
   mounted() {
     window.addEventListener('resize', this.handleResize);
   },
