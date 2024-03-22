@@ -1,8 +1,8 @@
 <template>
  <v-container>
   <v-row>
-    <v-col>
-        <v-toolbar-title>What We Do</v-toolbar-title>
+    <v-col cols="12">
+        <v-toolbar-title>Who We are</v-toolbar-title>
       </v-col>
       <v-col>
         <div>

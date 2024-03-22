@@ -81,8 +81,8 @@
   height="100">
         <v-img
         class="logoImg sm-ml-n6"
-        :min-width="180"
-        max-width="250"
+        :min-width="120"
+        :max-width="250"
         aspect-ratio="1/1"
         cover
         to="/" style="cursor: pointer"
@@ -127,11 +127,11 @@
     <v-row 
     justify="center"
     align-content="center"
-    class="sm-ml-4">
+    class="">
   <v-btn
      v-for="(icons, index) in IconItems"
     :key="index"
-    class="sm-ml-n8"
+    class="sm-ml-n1"
     >
          <v-icon
         :icon="icons.icon"
@@ -194,8 +194,8 @@
 .toggle{
   transform: scale(50%);
   position: relative;
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   background: transparent;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
   border-radius: 10px;

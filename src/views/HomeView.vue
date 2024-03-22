@@ -35,7 +35,7 @@
       <v-spacer cols="2"></v-spacer>
     </v-row>
     <v-row>
-      <v-col cols="6" sm="12">
+      <v-col col="12">
         <v-carousel 
           height="auto"
           hide-delimiters
@@ -73,7 +73,9 @@
           </v-carousel-item>
         </v-carousel>
       </v-col>
-      <v-col cols="6" sm="12">
+      </v-row>
+      <v-row>
+        <v-col>
         <div>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis molestiae ab porro deserunt tempore ad beatae error magni hic. Omnis autem explicabo aperiam. Ullam corporis harum eveniet. Corrupti, cumque qui!</p>
         </div>
