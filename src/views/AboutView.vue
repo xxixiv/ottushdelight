@@ -82,7 +82,7 @@ export default {
     cardItems: [
       {
         src: '',
-        person: '',
+        person: 'person 1',
         skil: '',
       },
       {
