@@ -37,8 +37,8 @@
     <v-row>
       <v-col cols="6">
         <v-carousel 
-          height="300"
-          progress
+          height="auto"
+     
           hide-delimiters
           @change="handleCarouselChange"
          

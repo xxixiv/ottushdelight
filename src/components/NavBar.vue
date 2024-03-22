@@ -46,10 +46,38 @@
       </v-list-item>
     </v-hover>
     </v-list>
+    <v-row justify="space-around"
+    class="pl-2 pt-8">
+      <v-icon
+        icon="mdi-facebook"
+        size="medium"
+      ></v-icon>
+  
+      <v-icon
+        icon="mdi-instagram"
+        size="medium"
+      ></v-icon>
+  
+      <v-icon
+        icon="mdi-whatsapp"
+        size="medium"
+      ></v-icon>
+  
+      <v-icon
+        icon="mdi-email"
+        size="medium"
+      ></v-icon>
+  
+      <v-icon
+        icon="mdi-phone"
+        size="medium"
+      ></v-icon>
+    </v-row>
+  
   </v-navigation-drawer>
 
   <v-toolbar app
-  dark
+
   height="100">
     <v-toolbar-title>
         <v-img
@@ -97,6 +125,15 @@
         </template>
       </transition>
     </v-app-bar-nav-icon> -->
+    <v-row justify="space-between"
+    v-for="(icons, index) in IconItems"
+    :key="index">
+      <v-icon
+        icon="icons.icon"
+        size="medium"
+        :a="icons.a"
+      ></v-icon>
+    </v-row>
     <div class="d-md-none d-flex toggle" 
     @click="toggleclass" 
     :class="{ 'act': sidebar }">
@@ -183,6 +220,17 @@ export default {
           { title: 'Our Services', path: '/services' },
           { title: 'Portfolio', path: '/portfolio' },
      ],
+     IconItems: [
+          { icon: 'mdi-facebook', a: 'https://facebook.com' },
+          {icon: 'mdi-instagram', a: 'https://instagram.com'},
+          { icon: 'mdi-whatsapp', a: 'https://whatsapp.com'},
+          {icon: 'mdi-email', a: 'https//gmail.com', type: 'email'},
+          {icon: 'mdi-phone', a: '+2345879088', type: 'tel'}
+     ],
+     logoimages: [
+      {src: "@/assets/logo b-bg.png", theme: "light"},
+      {src: "@/assets/logo.png", theme: "dark"}
+     ]
     }
   },
   methods: {
