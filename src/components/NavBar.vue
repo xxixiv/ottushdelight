@@ -19,20 +19,20 @@
     <v-img
     to="/" style="cursor: pointer"
     class="logoImg"
-    :width="auto"
-    aspect-ratio="1/1"
+    :min-width="300"
     cover
     src="@/assets/logo b-bg.png">
     </v-img> 
+    <div class="mt-n16">
   <v-list
     density="compact"
     nav
     v-for="item in menuItems"
-    :key="item.title">
+    :key="item.title"
+    >
     <v-hover
     v-slot="{ isHovering, props }"
-    open-delay="200"
-  >
+    open-delay="200">
     <v-list-item
         class="mb-2 font-weight-bold text-center text-subtitle-1 text-md-subtite-2"
         :to="item.path"
@@ -46,6 +46,7 @@
       </v-list-item>
     </v-hover>
     </v-list>
+  </div>
     <v-row justify="space-around"
     class="pl-2 pt-8">
       <v-icon
@@ -77,18 +78,16 @@
   </v-navigation-drawer>
 
   <v-toolbar app
-
   height="100">
-    <v-toolbar-title>
         <v-img
-        class="logoImg"
-        :width="500"
+        class="logoImg sm-ml-n6"
+        :min-width="180"
+        max-width="250"
         aspect-ratio="1/1"
         cover
         to="/" style="cursor: pointer"
         src="@/assets/logo b-bg.png">
         </v-img>
-    </v-toolbar-title>
     <v-btn
         v-for="item in menuItems"
         :key="item.title"
@@ -125,14 +124,56 @@
         </template>
       </transition>
     </v-app-bar-nav-icon> -->
-    <v-row justify="space-between"
-    v-for="(icons, index) in IconItems"
-    :key="index">
-      <v-icon
-        icon="icons.icon"
-        size="medium"
+    <v-row 
+    justify="center"
+    align-content="center"
+    class="sm-ml-4">
+  <v-btn
+     v-for="(icons, index) in IconItems"
+    :key="index"
+    class="sm-ml-n8"
+    >
+         <v-icon
+        :icon="icons.icon"
+        size="small"
         :a="icons.a"
+        class=""
+        style="cursor: pointer;"
       ></v-icon>
+  </v-btn>
+      <!-- 
+         justify="space-between"
+    class="md-ml-12"
+   ><v-icon
+      icon="mdi-facebook"
+      size="medium"
+      class=""
+      a="https://facebook.com"
+    ></v-icon>
+
+    <v-icon
+      icon="mdi-instagram"
+      size="medium"
+      class=""
+    ></v-icon>
+
+    <v-icon
+      icon="mdi-whatsapp"
+      size="medium"
+      class=""
+    ></v-icon>
+
+    <v-icon
+      icon="mdi-email"
+      size="medium"
+      class=""
+    ></v-icon>
+
+    <v-icon
+      icon="mdi-phone"
+      size="medium"
+      class="pr-10"
+    ></v-icon> -->
     </v-row>
     <div class="d-md-none d-flex toggle" 
     @click="toggleclass" 
@@ -214,16 +255,16 @@ export default {
       sidebar: false,
       menuItems: [
           { title: 'Home', path: '/', icon: 'home' },
-          { title: 'Our Packages', path: '/packages'},
+          //{ title: 'Our Packages', path: '/packages'},
           { title: 'About us', path: '/about' },
           { title: 'Contact Us', path: '/contact' },
           { title: 'Our Services', path: '/services' },
-          { title: 'Portfolio', path: '/portfolio' },
+          //{ title: 'Portfolio', path: '/portfolio' },
      ],
      IconItems: [
-          { icon: 'mdi-facebook', a: 'https://facebook.com' },
+          {icon: 'mdi-facebook', a: 'https://facebook.com' },
           {icon: 'mdi-instagram', a: 'https://instagram.com'},
-          { icon: 'mdi-whatsapp', a: 'https://whatsapp.com'},
+          {icon: 'mdi-whatsapp', a: 'https://whatsapp.com'},
           {icon: 'mdi-email', a: 'https//gmail.com', type: 'email'},
           {icon: 'mdi-phone', a: '+2345879088', type: 'tel'}
      ],

@@ -28,26 +28,32 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-spacer cols="2"></v-spacer>
-      <v-col cols="1">
+      <v-spacer></v-spacer>
+      <v-col>
         <h2>What we do</h2>
       </v-col>
       <v-spacer cols="2"></v-spacer>
     </v-row>
     <v-row>
-      <v-col cols="6">
+      <v-col cols="6" sm="12">
         <v-carousel 
           height="auto"
-     
           hide-delimiters
           @change="handleCarouselChange"
-         
+          next-icon="mdi-arrow-right"
+         prev-icon="mdi-arrow-left"
+         style="background: transparent;"
         >
           <v-carousel-item
             v-for="(item, index) in carouselItems"
             :key="index"
             :src="item.src"
             :aspect-ratio="item.aspectRatio"
+            height="100%"
+            min-height="60"
+            width="100%"
+            draggable="true"
+            inline="flex-grow"
             
           >
             <template v-if="item.type === 'image'">
@@ -67,7 +73,7 @@
           </v-carousel-item>
         </v-carousel>
       </v-col>
-      <v-col>
+      <v-col cols="6" sm="12">
         <div>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis molestiae ab porro deserunt tempore ad beatae error magni hic. Omnis autem explicabo aperiam. Ullam corporis harum eveniet. Corrupti, cumque qui!</p>
         </div>
