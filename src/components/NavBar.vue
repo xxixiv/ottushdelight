@@ -128,10 +128,10 @@
     justify="center"
     align-content="center"
     class="">
-    <v-btn v-for="(icons, index) in IconItems" :key="index" class="sm-ml-n1" style=" text-decoration: none;">
-      <a :href="icons.a" target="_blank" rel="noopener noreferrer" style="">
+    <v-btn v-for="(icons, index) in IconItems" :key="index" class="sm-ml-n1" :href="icons.a" style=" text-decoration: none;" target="_blank" rel="noopener noreferrer">
+      <!-- <a :href="icons.a" target="_blank" rel="noopener noreferrer" style=""> -->
         <v-icon :icon="icons.icon" size="small" class="" style="cursor: pointer;"></v-icon>
-      </a>
+      <!-- </a> -->
     </v-btn>
       <!-- 
          justify="space-between"
