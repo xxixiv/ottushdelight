@@ -23,44 +23,29 @@
     <v-toolbar-title>
       Meet The Team
     </v-toolbar-title>
-    <div
-    v-for="(items, index) in cardItems"
-    :key="index">
+  </v-row>
+  <v-row>
+    <v-col v-for="(items, index) in cardItems" :key="index" cols="12" sm="6" md="4" lg="3">
       <v-hover v-slot="{ isHovering, props }">
-        <v-card
-          class="mx-auto"
-          color="grey-lighten-4"
-          max-width="400"
-          v-bind="props"
-        >
-          <v-img
-            :aspect-ratio="16/9"
-            src="https://cdn.vuetifyjs.com/images/cards/kitchen.png"
-            cover
-          >
+        <v-card class="mx-auto" color="grey-lighten-4" max-width="400" v-bind="props">
+          <v-img :aspect-ratio="16/9" src="https://cdn.vuetifyjs.com/images/cards/kitchen.png" cover>
             <v-expand-transition>
-              <div
-                v-if="isHovering"
-                class="d-flex transition-fast-in-fast-out bg-orange-darken-2 v-card--reveal text-h2"
-                style="height: 100%;"
-              >
-                $14.99
+              <div v-if="isHovering" class="d-flex transition-fast-in-fast-out bg-orange-darken-2 v-card--reveal text-h2" style="height: 100%;">
+                {{ items.position }}
               </div>
             </v-expand-transition>
           </v-img>
-  
           <v-card-text class="pt-6">
             <h3 class="text-h4 font-weight-light text-orange mb-2">
               {{ items.person }}
             </h3>
-  
             <div class="font-weight-light text-h6 mb-2">
               {{ items.skill }}
             </div>
           </v-card-text>
         </v-card>
       </v-hover>
-    </div>
+    </v-col>
   </v-row>
  </v-container>
 </template>
@@ -77,32 +62,16 @@
 </style>
 <script>
 export default {
-  name : 'AboutView',
+  name: 'AboutView',
   data() {
-  //   cardItems: [
-  //     {
-  //       src: '',
-  //       person: 'person 1',
-  //       skil: '',
-  //     },
-  //     {
-  //       src: '',
-  //       person: '',
-  //       skil: '',
-  //     },
-  //     {
-  //       src: '',
-  //       person: '',
-  //       skil: '',
-  //     },
-  //     {
-  //       src: '',
-  //       person: '',
-  //       skil: '',
-  //     }
-  //   ]
-  // }
-
-}
+    return {
+      cardItems: [
+        { src: '', person: 'person 1', skill: 'skill 1', position: 'GM' },
+        { src: '', person: 'person 2', skill: 'skill 2', position: 'CEO' },
+        { src: '', person: 'person 3', skill: 'skill 3', position: 'AGM' },
+        { src: '', person: 'person 4', skill: 'skill 4', position: 'DGM' }
+      ]
+    }
+  }
 }
 </script>

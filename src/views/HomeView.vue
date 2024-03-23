@@ -3,12 +3,12 @@
     <v-row>
       <v-col cols="12">
         <div style="position: relative;">
-          <div :style="{ height: $vuetify.display.smAndDown ? '100%' : '50%', background: backgroundStyle, opacity: opacitySyle}">
+          <div style="height:350px; background: #101010; opacity: 0.6; align-content:center">
             <video
               ref="videoPlayer"
               src="./vid2.mp4"
-              width="50%"
-              height="100%" 
+              width="100%"
+              height="96%" 
               loop
               muted
               autoplay
@@ -42,10 +42,26 @@
           height="auto"
           hide-delimiters
           @change="handleCarouselChange"
-          next-icon="mdi-arrow-right"
-         prev-icon="mdi-arrow-left"
-         style="background: transparent;"
+          show-arrows="hover"
+          show-arrows-on-hover
         >
+          <template v-slot:prev="{ props }">
+            <v-btn
+              plain
+              class="content-icon"
+              @click="props.onClick"
+            ><v-icon icon="mdi-arrow-left"></v-icon></v-btn>
+          </template>
+          <template v-slot:next="{ props }">
+            <v-btn
+              plain
+              class="content-icon"
+              @click="props.onClick"
+            >
+              <v-icon icon="mdi-arrow-right"></v-icon>
+            </v-btn>
+          </template>
+    
           <v-carousel-item
             v-for="(item, index) in carouselItems"
             :key="index"
@@ -98,7 +114,7 @@ export default {
         { type: 'image', src: "/services.jpg", aspectRatio: 16 / 9 },
         { type: 'video', src: "./gifts.mp4", aspectRatio: 16 / 9 }
       ],
-      videoHeight: '50%', 
+      videoHeight: '70%', 
       backgroundStyle: '#101010',
       opacitySyle: '0.5'
     };
@@ -135,4 +151,14 @@ export default {
 </script>
 
 <style scoped>
+.content-icon{
+  background: none!important;
+  box-shadow: none!important;;
+  opacity: 0; 
+  transition: opacity 0.3s ease;
+}
+
+.v-carousel:hover .content-icon {
+  opacity: 1;
+}
 </style>

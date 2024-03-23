@@ -59,9 +59,11 @@
 
   <v-toolbar app
   height="80">
-  <router-link to="/">
+
+  <router-link to="/"
+  class="">
         <v-img
-        class="logoImg sm-ml-n10 md-pr-10"
+        class="logoImg sm-ml-n10 md-mr-10"
         :min-width="100"
         :max-width="250"
         aspect-ratio="1/1"
@@ -69,8 +71,8 @@
         to="/" style="cursor: pointer"
         src="@/assets/logo b-bg.png">
         </v-img>
-      </router-link>
-        <div class="sm-ml-n6 md-mr-6">
+      </router-link> 
+      <div class="d-none d-md-flex flex-grow-1  justify-content-center">
     <v-btn
         v-for="item in menuItems"
         :key="item.title"
@@ -111,7 +113,7 @@
     <v-row 
     justify="center"
     align-content="center"
-    class="md-ml-10">
+    class="">
     <v-btn v-for="(icons, index) in IconItems" :key="index" class="sm-ml-n4 md-pr-0" :href="icons.a" style=" text-decoration: none;" target="_blank" rel="noopener noreferrer">
       <!-- <a :href="icons.a" target="_blank" rel="noopener noreferrer" style=""> -->
         <v-icon :icon="icons.icon" size="small lg-large"  class="" style="cursor: pointer;"></v-icon>
