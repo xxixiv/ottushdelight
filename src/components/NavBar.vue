@@ -206,7 +206,7 @@
 position: absolute;
 width: 40px;
 height: 4px;
-background:#fff;
+background: #101010;;
 border-radius: 4px;
 transition: 0.5s;
 }
