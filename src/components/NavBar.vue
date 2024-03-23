@@ -15,7 +15,7 @@
   floating
   temporary
   > 
-
+  <router-link to="/">
     <v-img
     to="/" style="cursor: pointer"
     class="logoImg"
@@ -23,6 +23,7 @@
     cover
     src="@/assets/logo b-bg.png">
     </v-img> 
+  </router-link>
     <div class="mt-n16">
   <v-list
     density="compact"
@@ -48,53 +49,35 @@
     </v-list>
   </div>
     <v-row justify="space-around"
-    class="pl-2 pt-8">
-      <v-icon
-        icon="mdi-facebook"
-        size="medium"
-      ></v-icon>
-  
-      <v-icon
-        icon="mdi-instagram"
-        size="medium"
-      ></v-icon>
-  
-      <v-icon
-        icon="mdi-whatsapp"
-        size="medium"
-      ></v-icon>
-  
-      <v-icon
-        icon="mdi-email"
-        size="medium"
-      ></v-icon>
-  
-      <v-icon
-        icon="mdi-phone"
-        size="medium"
-      ></v-icon>
+    class="pt-8">
+    <v-btn v-for="(icons, index) in IconItems" :key="index" class="sm-ml-n4 icon-btn" :href="icons.a" style=" background: transparent!important" target="_blank" rel="noopener noreferrer">
+        <v-icon :icon="icons.icon" size="small"  class="" style="cursor: pointer;"></v-icon>
+    </v-btn>
     </v-row>
   
   </v-navigation-drawer>
 
   <v-toolbar app
-  height="100">
+  height="80">
+  <router-link to="/">
         <v-img
-        class="logoImg sm-ml-n6"
-        :min-width="120"
+        class="logoImg sm-ml-n10 md-pr-10"
+        :min-width="100"
         :max-width="250"
         aspect-ratio="1/1"
         cover
         to="/" style="cursor: pointer"
         src="@/assets/logo b-bg.png">
         </v-img>
+      </router-link>
+        <div class="sm-ml-n6 md-mr-6">
     <v-btn
         v-for="item in menuItems"
         :key="item.title"
         :to="item.path"
         density="compact"
         rounded
-        size="x-large"
+        size="large"
         class="hidden-sm-and-down text-decoration-none mr-3"
         v-ripple.center
         >
@@ -114,6 +97,7 @@
         </v-toolbar-items>
       </v-hover>
       </v-btn>
+      </div>
     <!-- <v-app-bar-nav-icon @click="sidebar = !sidebar">
       <transition name="fade">
         <template v-if="sidebar">
@@ -127,10 +111,10 @@
     <v-row 
     justify="center"
     align-content="center"
-    class="">
-    <v-btn v-for="(icons, index) in IconItems" :key="index" class="sm-ml-n1" :href="icons.a" style=" text-decoration: none;" target="_blank" rel="noopener noreferrer">
+    class="md-ml-10">
+    <v-btn v-for="(icons, index) in IconItems" :key="index" class="sm-ml-n4 md-pr-0" :href="icons.a" style=" text-decoration: none;" target="_blank" rel="noopener noreferrer">
       <!-- <a :href="icons.a" target="_blank" rel="noopener noreferrer" style=""> -->
-        <v-icon :icon="icons.icon" size="small" class="" style="cursor: pointer;"></v-icon>
+        <v-icon :icon="icons.icon" size="small lg-large"  class="" style="cursor: pointer;"></v-icon>
       <!-- </a> -->
     </v-btn>
       <!-- 
@@ -179,6 +163,24 @@
 </template>
 
 <style scoped>
+.v-img.logoImg {
+  /* Default size */
+  width: 250px; /* Adjust as needed */
+
+  /* Media query for smaller screens */
+  @media screen and (max-width: 768px) {
+    width: 150px; /* Adjust the size for smaller screens */
+  }
+  @media screen and (min-width: 500px){
+    width: 100px;
+  }
+}
+
+.v-btn.icon-btn {
+  background: transparent !important;
+  box-shadow: none !important;
+
+}
 .on-hover{
   color: #FFD54F;
   background-color: rgba(#fff, 0.8);
@@ -186,10 +188,10 @@
 .toggle{
   transform: scale(50%);
   position: relative;
-  width: 70px;
+  width: 75px;
   height: 70px;
   background: transparent;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+   box-shadow: 0 10px 20px rgba(92, 92, 92, 0.08);
   border-radius: 10px;
   justify-content: center;
   align-items: center;

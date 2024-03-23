@@ -3,15 +3,17 @@
     <v-row>
       <v-col cols="12">
         <div style="position: relative;">
-          <div style="background: #101010; opacity: 0.5;">
+          <div :style="{ height: $vuetify.display.smAndDown ? '100%' : '50%', background: backgroundStyle, opacity: opacitySyle}">
             <video
               ref="videoPlayer"
               src="./vid2.mp4"
-              width="100%" 
+              width="50%"
+              height="100%" 
               loop
               muted
               autoplay
-              @error="handleVideoError"
+              @error="handleVideoError"  
+              @loadedmetadata="handleVideoLoaded"
             ></video>
           </div>
           <div v-if="showLoading" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
@@ -35,7 +37,7 @@
       <v-spacer cols="2"></v-spacer>
     </v-row>
     <v-row>
-      <v-col col="12">
+      <v-col :cols="$vuetify.display.smAndDown ? 12 : 6">
         <v-carousel 
           height="auto"
           hide-delimiters
@@ -49,11 +51,9 @@
             :key="index"
             :src="item.src"
             :aspect-ratio="item.aspectRatio"
-            height="100%"
-            min-height="60"
+            height="50%"
             width="100%"
             draggable="true"
-            inline="flex-grow"
             
           >
             <template v-if="item.type === 'image'">
@@ -73,10 +73,10 @@
           </v-carousel-item>
         </v-carousel>
       </v-col>
-      </v-row>
-      <v-row>
-        <v-col>
-        <div>
+      <!-- </v-row>
+      <v-row> -->
+        <v-col :cols="$vuetify.display.smAndDown ? 12 : 6">
+        <div class="text-center">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis molestiae ab porro deserunt tempore ad beatae error magni hic. Omnis autem explicabo aperiam. Ullam corporis harum eveniet. Corrupti, cumque qui!</p>
         </div>
       </v-col>
@@ -97,8 +97,21 @@ export default {
         { type: 'image', src: "/popcorn.jpg", aspectRatio: 16 / 9 },
         { type: 'image', src: "/services.jpg", aspectRatio: 16 / 9 },
         { type: 'video', src: "./gifts.mp4", aspectRatio: 16 / 9 }
-      ]
+      ],
+      videoHeight: '50%', 
+      backgroundStyle: '#101010',
+      opacitySyle: '0.5'
     };
+  },
+  mounted() {
+    // Check screen size on mount and set the initial height
+    // this.setVideoHeight();
+    // Listen for window resize events to adjust height accordingly
+    window.addEventListener('resize', this.setVideoHeight);
+  },
+  beforeUnmount() {
+    // Remove event listener to prevent memory leaks
+    window.removeEventListener('resize', this.setVideoHeight);
   },
   methods: {
     handleVideoError() {
@@ -110,7 +123,13 @@ export default {
       if (videoPlayer && videoPlayer.tagName === 'VIDEO') {
         videoPlayer.pause();
       }
-    }
+    },
+    // setVideoHeight() {
+    //   this.videoHeight = $vuetify.display.smAndDown ? '70%' : '50%';
+    // },
+    handleVideoLoaded() {
+      this.showLoading = false; // Hide loading indicator once the video is loaded
+    },
 }
 }
 </script>
