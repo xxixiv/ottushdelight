@@ -58,8 +58,7 @@
   </v-navigation-drawer>
 
   <v-app-bar app
-  height="80"
-  scroll-behavior="collapse">
+  height="80">
 
   <router-link to="/"
   class="">
