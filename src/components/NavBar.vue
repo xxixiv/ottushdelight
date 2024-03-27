@@ -50,22 +50,23 @@
   </div>
     <v-row justify="space-around"
     class="pt-8">
-    <v-btn v-for="(icons, index) in IconItems" :key="index" class="sm-ml-n4 icon-btn" :href="icons.a" style=" background: transparent!important" target="_blank" rel="noopener noreferrer">
-        <v-icon :icon="icons.icon" size="small"  class="" style="cursor: pointer;"></v-icon>
+    <v-btn v-for="(icons, index) in iconItems" :key="index" class="sm-ml-n4 icon-btn" :href="icons.a" style=" background: transparent!important" target="_blank" rel="noopener noreferrer">
+        <v-icon :icon="icons.icon" size="large"  class="" style="cursor: pointer;"></v-icon>
     </v-btn>
     </v-row>
   
   </v-navigation-drawer>
 
-  <v-toolbar app
-  height="80">
+  <v-app-bar app
+  height="80"
+  scroll-behavior="collapse">
 
   <router-link to="/"
   class="">
         <v-img
         class="logoImg sm-ml-n10 md-mr-10"
         :min-width="100"
-        :max-width="250"
+        :width="350"
         aspect-ratio="1/1"
         cover
         to="/" style="cursor: pointer"
@@ -113,10 +114,10 @@
     <v-row 
     justify="center"
     align-content="center"
-    class="">
-    <v-btn v-for="(icons, index) in IconItems" :key="index" class="sm-ml-n4 md-pr-0" :href="icons.a" style=" text-decoration: none;" target="_blank" rel="noopener noreferrer">
+    class="d-none d-sm-flex">
+    <v-btn v-for="(icons, index) in iconItems" :key="index" class="sm-ml-n4 md-pr-0" :href="icons.a" style=" text-decoration: none;" target="_blank" rel="noopener noreferrer">
       <!-- <a :href="icons.a" target="_blank" rel="noopener noreferrer" style=""> -->
-        <v-icon :icon="icons.icon" size="small lg-large"  class="" style="cursor: pointer;"></v-icon>
+        <v-icon :icon="icons.icon" size="large"  class="" style="cursor: pointer;"></v-icon>
       <!-- </a> -->
     </v-btn>
       <!-- 
@@ -160,7 +161,7 @@
       <span></span>
       <span></span>
 </div>
-  </v-toolbar>
+  </v-app-bar>
   
 </template>
 
@@ -182,7 +183,12 @@
   background: transparent !important;
   box-shadow: none !important;
 
+  @media screen and (max-width: 768px) {
+      /* Adjust the size of icons for smaller screens */
+      font-size: 10px!important;
+  }
 }
+
 .on-hover{
   color: #FFD54F;
   background-color: rgba(#fff, 0.8);
@@ -246,6 +252,7 @@ transform: translateX(60px);
 
 export default {
   name: 'NavBar',
+
   data(){
     return {
       sidebar: false,
@@ -257,13 +264,14 @@ export default {
           { title: 'Our Services', path: '/services' },
           //{ title: 'Portfolio', path: '/portfolio' },
      ],
-     IconItems: [
+     iconItems: [
           {icon: 'mdi-facebook', a: 'https://facebook.com' },
           {icon: 'mdi-instagram', a: 'https://instagram.com'},
           {icon: 'mdi-whatsapp', a: 'https://whatsapp.com'},
           { icon: 'mdi-email', a: 'mailto:example@example.com' },
           { icon: 'mdi-phone', a: 'tel:+2345879088' }
      ],
+     
      logoimages: [
       {src: "@/assets/logo b-bg.png", theme: "light"},
       {src: "@/assets/logo.png", theme: "dark"}
@@ -278,6 +286,9 @@ export default {
      // window.location.reload();
     //},
   },
+  emitIconItems() {
+      this.$emit('icon-items', this.IconItems);
+    },
   //
   mounted() {
     window.addEventListener('resize', this.handleResize);

@@ -3,7 +3,7 @@
     <v-row>
       <v-col cols="12">
         <div style="position: relative;">
-          <div style="height:350px; background: #101010; opacity: 0.6; align-content:center">
+          <div style="height:450px; background: #101010; opacity: 0.6; align-content:center">
             <video
               ref="videoPlayer"
               src="./vid2.mp4"
@@ -61,7 +61,7 @@
               <v-icon icon="mdi-arrow-right"></v-icon>
             </v-btn>
           </template>
-    
+          
           <v-carousel-item
             v-for="(item, index) in carouselItems"
             :key="index"
@@ -73,7 +73,8 @@
             
           >
             <template v-if="item.type === 'image'">
-              <v-img :src="item.src" :aspect-ratio="item.aspectRatio" style="object-fit: cotain;" />
+              <v-skeleton-loader type="image">
+                <v-img :src="item.src" :aspect-ratio="item.aspectRatio" style="object-fit: cotain;" /></v-skeleton-loader>
             </template>
             <template v-else-if="item.type === 'video'">
               <video
@@ -87,6 +88,7 @@
             ></video>
             </template>
           </v-carousel-item>
+
         </v-carousel>
       </v-col>
       <!-- </v-row>
