@@ -26,12 +26,12 @@ export default {
         hovered: null,
         services: [
           {
-            name: 'Service 1',
+            name: 'Weddings',
             description: 'Description of Service 1',
             image: 'https://via.placeholder.com/300',
           },
           {
-            name: 'Service 2',
+            name: 'Naming',
             description: 'Description of Service 2',
             image: 'https://via.placeholder.com/300',
           },

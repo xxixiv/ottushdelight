@@ -63,7 +63,7 @@
   <router-link to="/"
   class="">
         <v-img
-        class="logoImg sm-ml-n10 md-mr-10"
+        class="logoImg sm-ml-0 md-mr-10"
         :min-width="100"
         :width="350"
         aspect-ratio="1/1"

@@ -95,9 +95,45 @@
         <!-- </v-row>
         <v-row> -->
           <v-col :cols="$vuetify.display.smAndDown ? 12 : 6">
-          <div class="text-center">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis molestiae ab porro deserunt tempore ad beatae error magni hic. Omnis autem explicabo aperiam. Ullam corporis harum eveniet. Corrupti, cumque qui!</p>
-          </div>
+         <v-card>
+      <v-card-title>Product Quota Calculator</v-card-title>
+      <v-card-text>
+        <v-form @submit.prevent="calculateTotalCost">
+          <v-container v-for="(product, index) in products" :key="index">
+            <v-row>
+              <v-col cols="12" md="6">
+              <v-combobox
+              chips
+              clearable
+              v-model="product.selected"
+              :items="productOptions.map(option => option.name)"
+              label="Select Product"
+              >
+              </v-combobox>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field 
+                v-model="product.quantity" 
+                :label="'Quantity for ' + product.selected" 
+                type="number"
+                :rules="[v => !!v || 'Quantity is required', v => (v === '' || v >= 0) || 'Quantity cannot be negative']"></v-text-field>
+              </v-col>
+            </v-row>
+          </v-container>
+          <v-row>
+            <v-col cols="12">
+              <v-btn type="submit" color="primary"
+              :disabled="isSubmitDisabled">Calculate Total Cost</v-btn>
+            </v-col>
+          </v-row>
+        </v-form>
+        <v-divider></v-divider>
+       
+        <div v-if="totalCost !== null">
+          <h3>Total Cost: N {{ totalCost }}</h3>
+        </div>
+      </v-card-text>
+    </v-card>
         </v-col>
       </v-row>
     </v-container>
@@ -119,9 +155,20 @@
         ],
         videoHeight: '70%', 
         backgroundStyle: '#101010',
-        opacitySyle: '0.5'
-      };
-    },
+        opacitySyle: '0.5',
+         products: [
+        { selected: null, quantity: 0 },
+        { selected: null, quantity: 0 },
+        // Add more products here with their respective unit prices
+      ],
+      productOptions: [
+        { name: 'Product A', unitPrice: 10, selected: false },
+        { name: 'Product B', unitPrice: 15, selected: false },
+        // Add more product options here
+      ],
+      totalCost: null
+    };
+  },
     mounted() {
       // Check screen size on mount and set the initial height
       // this.setVideoHeight();
@@ -149,8 +196,32 @@
       handleVideoLoaded() {
         this.showLoading = false; // Hide loading indicator once the video is loaded
       },
+  calculateTotalCost() {
+  let total = 0;
+  for (const product of this.products) {
+    // Check if a product is selected
+    if (product.selected) {
+      // Find the selected product from productOptions
+      const selectedProduct = this.productOptions.find(opt => opt.name === product.selected);
+      // Ensure selectedProduct exists and has a valid unitPrice
+      if (selectedProduct && typeof selectedProduct.unitPrice === 'number') {
+        // Calculate total cost for the selected product
+        total += product.quantity * selectedProduct.unitPrice;
+      } else {
+        console.error(`Invalid unitPrice for product "${product.selected}"`);
+      }
+    }
   }
+  this.totalCost = total;
+}
+    },
+      computed: {
+    isSubmitDisabled() {
+      // Check if any product quantity is null or negative
+      return this.products.some(product => product.quantity === null || product.quantity === '' || product.quantity < 0);
+    }
   }
+};
   </script>
 
   <style scoped>
