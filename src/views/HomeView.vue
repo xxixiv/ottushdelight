@@ -24,52 +24,78 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col>
-            <v-timeline direction="horizontal">
-              <v-timeline-item dot-color="amber">
-                <div>
-                  <div class="text-h6">What We Do</div>
-                </div>
-              </v-timeline-item>
-          
-              <v-timeline-item>
-                <template v-slot:opposite>
-                <v-alert
-                  color="dark"
-                  icon="mdi-information"
-                  :value="true"
-                >
-                Book us for any of your Events
+        <v-col v-if="$vuetify.display.smAndDown" cols="12">
+          <v-timeline direction="vertical">
+            <v-timeline-item dot-color="amber">
+              <div>
+                <div class="text-h6">What We Do</div>
+              </div>
+            </v-timeline-item>
+            <v-timeline-item>
+              <template v-slot:opposite>
+                <v-alert color="dark" icon="mdi-information" :value="true">
+                  Book us for any of your Events
                 </v-alert>
               </template>
-                <div>
-                  <div class="text-h6">Content title</div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  </p>
-                </div>
-              </v-timeline-item>
-          
-              <v-timeline-item>
-                <template v-slot:opposite>
-                  <v-alert
-                  color="dark"
-                  icon="mdi-information"
-                  :value="true"
-                >
-                We handle events like yours no pressure
+              <div>
+                <div class="text-h6">Content title</div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+              </div>
+            </v-timeline-item>
+            <v-timeline-item>
+              <template v-slot:opposite>
+                <v-alert color="dark" icon="mdi-information" :value="true">
+                  We handle events like yours no pressure
                 </v-alert>
-                </template>
-                <div>
-                  <div class="text-h6">Content title</div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  </p>
-                </div>
-              </v-timeline-item>
-            </v-timeline>
+              </template>
+              <div>
+                <div class="text-h6">Content title</div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+              </div>
+            </v-timeline-item>
+          </v-timeline>
+        </v-col>
+        <v-col v-else>
+          <v-timeline direction="horizontal">
+            <v-timeline-item dot-color="amber">
+              <div>
+                <div class="text-h6">What We Do</div>
+              </div>
+            </v-timeline-item>
+            <v-timeline-item>
+              <template v-slot:opposite>
+                <v-alert color="dark" icon="mdi-information" :value="true">
+                  Book us for any of your Events
+                </v-alert>
+              </template>
+              <div>
+                <div class="text-h6">Content title</div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+              </div>
+            </v-timeline-item>
+            <v-timeline-item>
+              <template v-slot:opposite>
+                <v-alert color="dark" icon="mdi-information" :value="true">
+                  We handle events like yours no pressure
+                </v-alert>
+              </template>
+              <div>
+                <div class="text-h6">Content title</div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+              </div>
+            </v-timeline-item>
+          </v-timeline>
         </v-col>
       </v-row>
+  
       <v-row>
         <v-col :cols="$vuetify.display.smAndDown ? 12 : 6">
           <v-lazy
