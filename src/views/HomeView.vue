@@ -17,13 +17,6 @@
                 @loadedmetadata="handleVideoLoaded"
               ></video>
             </div>
-            <div v-if="showLoading" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-              <v-progress-circular
-                indeterminate
-                color="primary"
-                size="64"
-              ></v-progress-circular>
-            </div>
             <div v-if="showOverlay" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
               <h2 style="color: white; font-size: 24px; font-weight: bold;">Ottush delight</h2>
             </div>
@@ -31,14 +24,59 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-spacer></v-spacer>
         <v-col>
-          <h2>What we do</h2>
+            <v-timeline direction="horizontal">
+              <v-timeline-item dot-color="amber">
+                <div>
+                  <div class="text-h6">What We Do</div>
+                </div>
+              </v-timeline-item>
+          
+              <v-timeline-item>
+                <template v-slot:opposite>
+                <v-alert
+                  color="dark"
+                  icon="mdi-information"
+                  :value="true"
+                >
+                Book us for any of your Events
+                </v-alert>
+              </template>
+                <div>
+                  <div class="text-h6">Content title</div>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
+                </div>
+              </v-timeline-item>
+          
+              <v-timeline-item>
+                <template v-slot:opposite>
+                  <v-alert
+                  color="dark"
+                  icon="mdi-information"
+                  :value="true"
+                >
+                We handle events like yours no pressure
+                </v-alert>
+                </template>
+                <div>
+                  <div class="text-h6">Content title</div>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
+                </div>
+              </v-timeline-item>
+            </v-timeline>
         </v-col>
-        <v-spacer cols="2"></v-spacer>
       </v-row>
       <v-row>
         <v-col :cols="$vuetify.display.smAndDown ? 12 : 6">
+          <v-lazy
+          :min-height="500"
+          :options="{'threshold':0.8}"
+          transition="fade-transition"
+          >
           <v-carousel 
             height="auto"
             hide-delimiters
@@ -91,12 +129,13 @@
             </v-carousel-item>
 
           </v-carousel>
+          </v-lazy>
         </v-col>
         <!-- </v-row>
         <v-row> -->
           <v-col :cols="$vuetify.display.smAndDown ? 12 : 6">
          <v-card>
-      <v-card-title>Product Quota Calculator</v-card-title>
+      <v-card-title>Events Quota Calculator</v-card-title>
       <v-card-text>
         <v-form @submit.prevent="calculateTotalCost">
           <v-container v-for="(product, index) in products" :key="index">
@@ -104,6 +143,7 @@
               <v-col cols="12" md="6">
               <v-combobox
               chips
+              multiple
               clearable
               v-model="product.selected"
               :items="productOptions.map(option => option.name)"
@@ -111,26 +151,36 @@
               >
               </v-combobox>
               </v-col>
-              <v-col cols="12" md="6">
+            </v-row>
+            <v-row v-if="product.selected.length > 0">
+              <v-col v-for="(selectedProduct, selectedIndex) in product.selected" :key="selectedIndex" cols="12" md="6">
                 <v-text-field 
-                v-model="product.quantity" 
-                :label="'Quantity for ' + product.selected" 
-                type="number"
-                :rules="[v => !!v || 'Quantity is required', v => (v === '' || v >= 0) || 'Quantity cannot be negative']"></v-text-field>
+                  v-model="product.quantities[selectedIndex]" 
+                  :label="'Quantity for ' + selectedProduct" 
+                  type="number"
+                  :rules="[v => !!v || 'Quantity is required', v => (v === '' || v >= 0) || 'Quantity cannot be negative']"
+                ></v-text-field>
               </v-col>
             </v-row>
+            <v-divider v-if="index !== products.length - 1"></v-divider>
           </v-container>
           <v-row>
             <v-col cols="12">
-              <v-btn type="submit" color="primary"
+              <v-btn type="submit" color="light"
               :disabled="isSubmitDisabled">Calculate Total Cost</v-btn>
             </v-col>
           </v-row>
         </v-form>
         <v-divider></v-divider>
-       
+        <v-spacer></v-spacer>
         <div v-if="totalCost !== null">
-          <h3>Total Cost: N {{ totalCost }}</h3>
+          <v-alert
+          density="compact"
+          variant="outlined"
+          type="info"
+          color="light"
+        >Total Cost: N {{ totalCost }}</v-alert>
+          <h3></h3>
         </div>
       </v-card-text>
     </v-card>
@@ -157,14 +207,14 @@
         backgroundStyle: '#101010',
         opacitySyle: '0.5',
          products: [
-        { selected: null, quantity: 0 },
-        { selected: null, quantity: 0 },
-        // Add more products here with their respective unit prices
+          { selected: [], quantities: [] }
       ],
       productOptions: [
         { name: 'Product A', unitPrice: 10, selected: false },
         { name: 'Product B', unitPrice: 15, selected: false },
-        // Add more product options here
+        { name: 'Product C', unitPrice: 15, selected: false },
+        { name: 'Product D', unitPrice: 15, selected: false },
+        { name: 'Product E', unitPrice: 15, selected: false },
       ],
       totalCost: null
     };
@@ -196,19 +246,17 @@
       handleVideoLoaded() {
         this.showLoading = false; // Hide loading indicator once the video is loaded
       },
-  calculateTotalCost() {
+      calculateTotalCost() {
   let total = 0;
   for (const product of this.products) {
-    // Check if a product is selected
-    if (product.selected) {
-      // Find the selected product from productOptions
-      const selectedProduct = this.productOptions.find(opt => opt.name === product.selected);
-      // Ensure selectedProduct exists and has a valid unitPrice
-      if (selectedProduct && typeof selectedProduct.unitPrice === 'number') {
-        // Calculate total cost for the selected product
-        total += product.quantity * selectedProduct.unitPrice;
+    for (let i = 0; i < product.selected.length; i++) {
+      const selectedProduct = product.selected[i];
+      const quantity = parseInt(product.quantities[i] || 0); // Default to 0 if quantity is empty
+      const option = this.productOptions.find(opt => opt.name === selectedProduct);
+      if (option && typeof option.unitPrice === 'number') {
+        total += quantity * option.unitPrice;
       } else {
-        console.error(`Invalid unitPrice for product "${product.selected}"`);
+        console.error(`Invalid unitPrice for product "${selectedProduct}"`);
       }
     }
   }
