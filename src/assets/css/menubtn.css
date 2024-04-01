@@ -2,3 +2,19 @@
     font-family: 'sunny';
     src: url('@/assets/fonts/Sunny.otf') format('opentype');
   }
+
+  @font-face {
+    font-family: 'lofty';
+    src: url('@/assets/fonts/Lofty.otf') format('opentype');
+  }
+
+  @font-face {
+    font-family: 'bare';
+    src: url('@/assets/fonts/Barely.ttf') format('truetype');
+  }
+
+
+  @font-face {
+    font-family: 'feas';
+    src: url('@/assets/fonts/Feasibly.ttf') format('truetype');
+  }

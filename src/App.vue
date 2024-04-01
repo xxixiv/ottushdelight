@@ -1,7 +1,7 @@
 <template>
-  <v-app>
+  <v-app theme="dark">
     <v-main>
-      <div :style="{ backgroundColor: $vuetify.theme.themes.light.primary }">
+      <div :style="{ }">
       <NavBar :menuItems="menuItems" :iconItems="iconItems" />
     
         <RouterView />
@@ -42,7 +42,7 @@ export default {
      ],
      iconItems: [
           {icon: 'mdi-facebook', a: 'https://facebook.com' },
-          {icon: 'mdi-instagram', a: 'https://instagram.com'},
+          {icon: 'mdi-instagram', a: 'https://www.instagram.com/ottushdelight/'},
           {icon: 'mdi-whatsapp', a: 'https://whatsapp.com'},
           { icon: 'mdi-email', a: 'mailto:example@example.com' },
           { icon: 'mdi-phone', a: 'tel:+2345879088' }

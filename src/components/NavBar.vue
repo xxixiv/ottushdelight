@@ -21,7 +21,7 @@
     class="logoImg"
     :min-width="300"
     cover
-    src="@/assets/logo b-bg.png">
+    src="@/assets/logo.png">
     </v-img> 
   </router-link>
     <div class="mt-n16">
@@ -68,7 +68,7 @@
         :width="245"
         aspect-ratio="1/1"
         to="/" style="cursor: pointer"
-        src="@/assets/logo b-bg.png">
+        src="@/assets/logo.png">
         </v-img>
       </router-link> 
       <div class="d-none d-md-flex flex-grow-1  justify-content-center">
@@ -210,7 +210,7 @@
 position: absolute;
 width: 40px;
 height: 4px;
-background: #101010;
+background: #fff;
 border-radius: 4px;
 transition: 0.5s;
 }

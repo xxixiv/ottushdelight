@@ -27,6 +27,7 @@
         <v-col style="justify-content:center!important" cols="12">
           <div>
             <h2 style="; font-family: sunny;">OTTUSH</h2>
+            <h5 style="font-family:feas; font-weight:400; font-size:30px" class="pl-6">We deal in</h5>
           </div>
         </v-col>
       </v-row>
@@ -83,7 +84,6 @@
           </v-timeline>
         </v-col> -->
       </v-row>
-  
       <v-row>
         <v-col :cols="$vuetify.display.smAndDown ? 12 : 6">
           <v-lazy
