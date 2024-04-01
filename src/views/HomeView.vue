@@ -23,13 +23,17 @@
           </div>
         </v-col>
       </v-row>
-      <v-row justify="center">
+      <v-row>
+        <v-lazy
+        :min-height="auto"
+        :options="{'threshold':0.7}"
+        transition="slide-x-reverse-transition"
+      >
         <v-col style="justify-content:center!important" cols="12">
-          <div>
             <h2 style="; font-family: sunny;">OTTUSH</h2>
             <h5 style="font-family:feas; font-weight:400; font-size:30px" class="pl-6">We deal in</h5>
-          </div>
         </v-col>
+        </v-lazy>
       </v-row>
       <v-row>
         <v-col v-if="$vuetify.display.smAndDown" cols="12">
@@ -87,7 +91,7 @@
       <v-row>
         <v-col :cols="$vuetify.display.smAndDown ? 12 : 6">
           <v-lazy
-          :min-height="500"
+          :min-height="300"
           :options="{'threshold':0.8}"
           transition="fade-transition"
           >
