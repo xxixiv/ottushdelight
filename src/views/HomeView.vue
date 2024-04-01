@@ -31,7 +31,7 @@
       >
         <v-col style="justify-content:center!important" cols="12">
             <h2 style="; font-family: sunny;">OTTUSH</h2>
-            <h5 style="font-family:feas; font-weight:400; font-size:30px" class="pl-6">We deal in</h5>
+            <h5 style="font-family:feas; font-size:40px" class="pl-6">We deal in</h5>
         </v-col>
         </v-lazy>
       </v-row>
