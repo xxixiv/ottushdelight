@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <v-main>
+      <div :style="{ backgroundColor: $vuetify.theme.themes.light.primary }">
       <NavBar :menuItems="menuItems" :iconItems="iconItems" />
     
         <RouterView />
@@ -11,6 +12,7 @@
       color="primary"
       height="2"
     ></v-progress-linear>
+  </div>
     </v-main>
   </v-app>
 </template>

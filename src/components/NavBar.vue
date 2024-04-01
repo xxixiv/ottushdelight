@@ -63,11 +63,10 @@
   <router-link to="/"
   class="">
         <v-img
-        class="logoImg sm-ml-0 md-mr-10"
+        class="logoImg sm-ml-n4 md-mr-10"
         :min-width="100"
-        :width="350"
+        :width="245"
         aspect-ratio="1/1"
-        cover
         to="/" style="cursor: pointer"
         src="@/assets/logo b-bg.png">
         </v-img>

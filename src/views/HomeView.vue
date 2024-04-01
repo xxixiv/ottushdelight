@@ -4,7 +4,7 @@
         <v-col cols="12" 
         style="padding:0 0!important;">
           <div style="position: relative;">
-            <div style="height:450px; background: #101010; opacity: 0.6; align-content:center">
+            <div style="height:450px; background: #313131; opacity: 0.8; align-content:center">
               <video
                 ref="videoPlayer"
                 src="./vid2.mp4"
@@ -18,48 +18,36 @@
               ></video>
             </div>
             <div v-if="showOverlay" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-              <h2 style="color: white; font-size: 24px; font-weight: bold;">Ottush delight</h2>
+              <h2 style="color: white; font-size: 20px; font-weight: bold;">Ottush delight</h2>
             </div>
+          </div>
+        </v-col>
+      </v-row>
+      <v-row justify="center">
+        <v-col style="justify-content:center!important" cols="12">
+          <div>
+            <h2 style="; font-family: sunny;">OTTUSH</h2>
           </div>
         </v-col>
       </v-row>
       <v-row>
         <v-col v-if="$vuetify.display.smAndDown" cols="12">
-          <v-timeline direction="vertical">
-            <v-timeline-item dot-color="amber">
-              <div>
-                <div class="text-h6">What We Do</div>
-              </div>
-            </v-timeline-item>
-            <v-timeline-item>
-              <template v-slot:opposite>
-                <v-alert color="dark" icon="mdi-information" :value="true">
-                  Book us for any of your Events
-                </v-alert>
-              </template>
-              <div>
-                <div class="text-h6">Content title</div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-              </div>
-            </v-timeline-item>
-            <v-timeline-item>
-              <template v-slot:opposite>
-                <v-alert color="dark" icon="mdi-information" :value="true">
-                  We handle events like yours no pressure
-                </v-alert>
-              </template>
-              <div>
-                <div class="text-h6">Content title</div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-              </div>
+          <v-timeline side="end">
+            <v-timeline-item
+              dot-color="#FFECB3"
+              size="small"
+            >
+              <v-alert
+                color="#FFFDE7"
+                icon="info"
+                :value="true"
+              >
+                Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae.
+              </v-alert>
             </v-timeline-item>
           </v-timeline>
         </v-col>
-        <v-col v-else>
+        <!-- <v-col v-else>
           <v-timeline direction="horizontal">
             <v-timeline-item dot-color="amber">
               <div>
@@ -93,7 +81,7 @@
               </div>
             </v-timeline-item>
           </v-timeline>
-        </v-col>
+        </v-col> -->
       </v-row>
   
       <v-row>
