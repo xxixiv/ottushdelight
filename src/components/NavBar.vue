@@ -59,11 +59,12 @@
 
   <v-app-bar app
   height="80">
-
+  <div class="sm-px-0 sm-mr-5 sm-ml-0 md-mr-10 pr-12 ml-n7">
   <router-link to="/"
   class="">
+     
         <v-img
-        class="logoImg sm-ml-n4 md-mr-10"
+        class="logoImg"
         :min-width="100"
         :width="245"
         aspect-ratio="1/1"
@@ -71,6 +72,7 @@
         src="@/assets/logo.png">
         </v-img>
       </router-link> 
+    </div>
       <div class="d-none d-md-flex flex-grow-1  justify-content-center">
     <v-btn
         v-for="item in menuItems"
@@ -152,7 +154,7 @@
       class="pr-10"
     ></v-icon> -->
     </v-row>
-    <div class="d-md-none d-flex toggle" 
+    <div class="d-md-none d-flex ml-n8 sm-ml-4 toggle" 
     @click="toggleclass" 
     :class="{ 'act': sidebar }">
       <span></span>

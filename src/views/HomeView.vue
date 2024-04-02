@@ -37,20 +37,28 @@
       </v-row>
       <v-row>
         <v-col v-if="$vuetify.display.smAndDown" cols="12">
+          <v-lazy
+          :min-height="auto"
+          :options="{'threshold':1}"
+          transition="slide-y-transition"
+        >
           <v-timeline side="end">
             <v-timeline-item
+              v-for="(item, index) in alertItems"
+              :key="index"
               dot-color="#FFECB3"
               size="small"
             >
               <v-alert
                 color="#FFFDE7"
-                icon="info"
                 :value="true"
               >
-                Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae.
+              <div class="text-h6">{{ item.name }}</div>
+              {{ item.text }}
               </v-alert>
             </v-timeline-item>
-          </v-timeline>
+           </v-timeline>
+          </v-lazy>
         </v-col>
         <!-- <v-col v-else>
           <v-timeline direction="horizontal">
@@ -88,10 +96,22 @@
           </v-timeline>
         </v-col> -->
       </v-row>
+      <v-divider></v-divider>
+      <v-row>
+        <v-lazy
+        :min-height="auto"
+        :options="{'threshold':0.7}"
+        transition="slide-x-reverse-transition"
+      >
+        <v-col style="justify-content:center!important" cols="12">
+            <h5 style="font-family:feas; font-size:40px" class="pl-6">Who we are</h5>
+        </v-col>
+        </v-lazy>
+      </v-row>
       <v-row>
         <v-col :cols="$vuetify.display.smAndDown ? 12 : 6">
           <v-lazy
-          :min-height="300"
+          :min-height="auto"
           :options="{'threshold':0.8}"
           transition="fade-transition"
           >
@@ -220,6 +240,12 @@
           { type: 'image', src: "/popcorn.jpg", aspectRatio: 16 / 9 },
           { type: 'image', src: "/services.jpg", aspectRatio: 16 / 9 },
           { type: 'video', src: "./gifts.mp4", aspectRatio: 16 / 9 }
+        ],
+        alertItems: [
+          {name: 'Drinks Mangement', text: 'Leave it to us to handle your drinks without stress', dot: '', color: ''},
+          {name: 'Exotic Mocktails', text: 'We make Exquisite Mocktails', dot: '', color: ''},
+          {name: 'Chocolate fountains', text: 'Only the best of the best', dot: '', color: ''},
+          {name: 'Slushies', text: 'You\'ll always want more', dot: '', color: ''},
         ],
         videoHeight: '70%', 
         backgroundStyle: '#101010',
