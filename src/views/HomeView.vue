@@ -239,7 +239,7 @@
           { type: 'video', src: "./cocktail.mp4", aspectRatio: 16 / 9 },
           { type: 'image', src: "/popcorn.jpg", aspectRatio: 16 / 9 },
           { type: 'image', src: "/services.jpg", aspectRatio: 16 / 9 },
-          { type: 'video', src: "./gifts.mp4", aspectRatio: 16 / 9 }
+          { type: 'image', src: "/flyer.jpg", aspectRatio: 16 / 9 }
         ],
         alertItems: [
           {name: 'Drinks Mangement', text: 'Leave it to us to handle your drinks without stress', dot: '', color: ''},
