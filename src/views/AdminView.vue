@@ -28,6 +28,7 @@
       return {
         selectedFile: null,
         files: []
+        
       };
     },
     methods: {
