@@ -3,7 +3,6 @@ import HomeView from '../views/HomeView.vue'
 
 const routes = [
   {
-    mode: 'history',
     path: '/',
     name: 'home',
     component: HomeView
@@ -56,8 +55,9 @@ component: () => import(/* webpackChunkName: "about" */ '../components/OurServic
     }
 ]
 
-module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/ottushdelight/' : '/',
-};
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
+  routes
+})
 
 export default router
