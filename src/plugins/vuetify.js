@@ -17,4 +17,14 @@ export default createVuetify({
       },
     },
   },
+  breakpoint: {
+    thresholds: {
+      xs: 340, // Custom breakpoint for xs
+      sm: 540, // Custom breakpoint for sm
+      md: 800, // Custom breakpoint for md
+      lg: 1280, // Custom breakpoint for lg
+      xl: 1920, // Custom breakpoint for xl
+    },
+    scrollBarWidth: 20, // optional
+  },
 })

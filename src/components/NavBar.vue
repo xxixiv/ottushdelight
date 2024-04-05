@@ -59,20 +59,20 @@
 
   <v-app-bar app
   height="80">
-  <div class="sm-px-0 sm-mr-5 sm-ml-0 md-mr-10 pr-12 ml-n7">
   <router-link to="/"
   class="">
-     
+        <div 
+        class="img">
         <v-img
-        class="logoImg"
-        :min-width="100"
-        :width="245"
+        class="logoImg ml-n8"
+        :width="250"
         aspect-ratio="1/1"
         to="/" style="cursor: pointer"
         src="@/assets/logo.png">
         </v-img>
+      </div>
       </router-link> 
-    </div>
+
       <div class="d-none d-md-flex flex-grow-1  justify-content-center">
     <v-btn
         v-for="item in menuItems"
@@ -154,7 +154,7 @@
       class="pr-10"
     ></v-icon> -->
     </v-row>
-    <div class="d-md-none d-flex ml-n8 sm-ml-4 toggle" 
+    <div class="d-md-none d-flex ml-4 toggle" 
     @click="toggleclass" 
     :class="{ 'act': sidebar }">
       <span></span>
@@ -166,16 +166,13 @@
 </template>
 
 <style scoped>
-.v-img.logoImg {
+.img.v-img.logoImg {
   /* Default size */
-  width: 250px; /* Adjust as needed */
+  width: 250px!important; /* Adjust as needed */
 
   /* Media query for smaller screens */
-  @media screen and (max-width: 768px) {
-    width: 150px; /* Adjust the size for smaller screens */
-  }
-  @media screen and (min-width: 500px){
-    width: 100px;
+  @media screen and (max-width: 300px) {
+    width: 100px!important; /* Adjust the size for smaller screens */
   }
 }
 
