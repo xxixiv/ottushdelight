@@ -24,13 +24,23 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-lazy
+        <v-lazy v-if="$vuetify.display.smAndDown"
         :min-height="auto"
         :options="{'threshold':0.7}"
         transition="slide-x-reverse-transition"
       >
         <v-col style="justify-content:center!important" cols="12">
             <h2 style="; font-family: sunny;">OTTUSH</h2>
+            <h5 style="font-family:feas; font-size:40px" class="pl-6">We deal in</h5>
+        </v-col>
+        </v-lazy>
+        <v-lazy v-if="$vuetify.display.mdAndUp"
+        :min-height="auto"
+        :options="{'threshold':0.7}"
+        transition="slide-x-reverse-transition"
+      >
+        <v-col cols="12">
+            <h2 style="font-family: sunny; font-size:60px;">OTTUSH</h2>
             <h5 style="font-family:feas; font-size:40px" class="pl-6">We deal in</h5>
         </v-col>
         </v-lazy>
@@ -96,9 +106,9 @@
           </v-timeline>
         </v-col> -->
       </v-row>
-      <v-divider></v-divider>
+      <v-divider v-if="$vuetify.display.smAndDown"></v-divider>
       <v-row>
-        <v-lazy
+        <v-lazy v-if="$vuetify.display.smAndDown"
         :min-height="auto"
         :options="{'threshold':0.7}"
         transition="slide-x-reverse-transition"
@@ -115,6 +125,7 @@
           :options="{'threshold':0.8}"
           transition="fade-transition"
           >
+
           <v-carousel 
             height="auto"
             hide-delimiters

@@ -111,13 +111,15 @@ export default {
 
 
 <template>
-  <div class="section">
+  <v-container>
+    <v-row align-content="center" align="center">
     <p>
       Ooops!!! You've arrived on a wrong link, You're missing out on the fun!
       <br>
       <RouterLink to="/" style="padding: 30%">Back to Homepage</RouterLink>
     </p>
-  </div>
+  </v-row>
+  </v-container>
 </template>
 
 <script setup>
@@ -125,12 +127,6 @@ export default {
 </script>
 
 <style scoped>
-.section{
-  width: 100%;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-}
 
 span {
   animation: floatText 4s ease-in-out infinite;

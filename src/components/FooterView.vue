@@ -1,9 +1,12 @@
 <template>
-  <v-divider></v-divider>
 
   <v-footer class="d-flex flex-column"
   absolute
   app>
+  <v-divider
+  class="pb-6"
+  v-if="$vuetify.display.smAndDown">
+</v-divider>
   <v-row 
   justify="center"
   class="hidden-md-and-up" 
