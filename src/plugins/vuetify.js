@@ -25,6 +25,6 @@ export default createVuetify({
       lg: 1280, // Custom breakpoint for lg
       xl: 1920, // Custom breakpoint for xl
     },
-    scrollBarWidth: 20, // optional
+    scrollBarWidth: 10, // optional
   },
 })

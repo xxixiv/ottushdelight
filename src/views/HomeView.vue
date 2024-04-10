@@ -23,15 +23,15 @@
           </div>
         </v-col>
       </v-row>
-      <v-row>
+      <v-row justify-md="center">
         <v-lazy v-if="$vuetify.display.smAndDown"
         :min-height="auto"
         :options="{'threshold':0.7}"
         transition="slide-x-reverse-transition"
       >
         <v-col style="justify-content:center!important" cols="12">
-            <h2 style="; font-family: sunny;">OTTUSH</h2>
-            <h5 style="font-family:feas; font-size:40px" class="pl-6">We deal in</h5>
+            <h2 style="; font-family: sunny;">OTTUSH DELIGHT</h2>
+            <h5 style="font-family:bare; font-size:40px" class="pl-6">We deal in</h5>
         </v-col>
         </v-lazy>
         <v-lazy v-if="$vuetify.display.mdAndUp"
@@ -39,9 +39,10 @@
         :options="{'threshold':0.7}"
         transition="slide-x-reverse-transition"
       >
-        <v-col cols="12">
-            <h2 style="font-family: sunny; font-size:60px;">OTTUSH</h2>
-            <h5 style="font-family:feas; font-size:40px" class="pl-6">We deal in</h5>
+        <v-col>
+            <h2 style="font-family: sunny; font-size:60px;">OTTUSH DELIGHT</h2>
+            <h5 style="font-family:lofty; font-size:40px" class="pl-6">Delightinging your buds with our Exceptional tastes</h5>
+            <v-divider></v-divider>
         </v-col>
         </v-lazy>
       </v-row>
@@ -114,7 +115,7 @@
         transition="slide-x-reverse-transition"
       >
         <v-col style="justify-content:center!important" cols="12">
-            <h5 style="font-family:feas; font-size:40px" class="pl-6">Who we are</h5>
+            <h5 style="font-family:bare; font-size:20px" class="pl-6">A feel of our presence</h5>
         </v-col>
         </v-lazy>
       </v-row>
@@ -190,7 +191,7 @@
             transition="slide-x-transition"
           >
             <v-col style="justify-content:center!important" cols="12">
-                <h6 style="font-family:feas; font-size:35px" class="pl-6">Get a qouta for your events here</h6>
+                <h6 style="font-family:bare; font-size:20px" class="pl-6">Get a qouta for your events here</h6>
             </v-col>
             </v-lazy>
           </v-row>

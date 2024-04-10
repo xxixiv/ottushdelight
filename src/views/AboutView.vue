@@ -1,9 +1,17 @@
 <template>
  <v-container>
   <v-row>
-    <v-col cols="12">
-        <v-toolbar-title>Who We are</v-toolbar-title>
-      </v-col>
+        <v-lazy 
+        :min-height="auto"
+        :options="{'threshold':0.7}"
+        transition="slide-x-reverse-transition"
+      >
+        <v-col cols="12">
+            <v-toolbar-title style="font-family: lofty; font-size: 40px" class="pl-6">Who we are</v-toolbar-title>
+        </v-col>
+        </v-lazy>
+        </v-row>
+        <v-row>
       <v-col>
         <div>
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia quae laborum non aliquam odit obcaecati ab, laudantium delectus alias consequuntur, distinctio facere iste totam ex ullam provident esse veniam nihil.
