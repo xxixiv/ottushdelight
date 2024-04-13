@@ -1,6 +1,8 @@
 // Styles
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
+import { aliases, fa } from 'vuetify/iconsets/fa'
+import { mdi } from 'vuetify/iconsets/mdi'
 
 // Vuetify
 import { createVuetify } from 'vuetify'
@@ -26,5 +28,14 @@ export default createVuetify({
       xl: 1920, // Custom breakpoint for xl
     },
     scrollBarWidth: 10, // optional
+  },
+
+  icons: {
+    defaultSet: 'fa',
+    aliases,
+    sets: {
+      fa,
+      mdi
+    },
   },
 })

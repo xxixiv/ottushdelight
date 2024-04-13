@@ -18,7 +18,7 @@
   <router-link to="/">
     <v-img
     to="/" style="cursor: pointer"
-    class="logoImg"
+    class="logoImg ml-n5"
     :min-width="300"
     cover
     src="@/assets/logo.png">
@@ -65,7 +65,7 @@
         class="img">
         <v-img
         class="logoImg ml-n8"
-        :width="250"
+        :width="320"
         aspect-ratio="1/1"
         to="/" style="cursor: pointer"
         src="@/assets/logo.png">

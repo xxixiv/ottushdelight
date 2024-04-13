@@ -40,12 +40,25 @@
         transition="slide-x-reverse-transition"
       >
         <v-col>
-            <h2 style="font-family: sunny; font-size:60px;">OTTUSH DELIGHT</h2>
-            <h5 style="font-family:lofty; font-size:40px" class="pl-6">Delightinging your buds with our Exceptional tastes</h5>
+            <h2 style="font-family: sunny; font-size:60px;" class="d-flex justify-center">OTTUSH DELIGHT</h2>
+            <h5 style="font-family:lofty; font-size:40px" class="">Delightinging your buds with our Exceptional tastes</h5>
+            <v-divider ></v-divider>
+            <div  v-for="(item, index) in alertItems"
+            :key="index">
+            <h6 style=" font-family:sunny; font-size:30px" class="py-5">{{ item.name }}</h6>
             <v-divider></v-divider>
+          </div>
+          <v-btn
+          class="my-5 d-flex justify-center"
+          height="62"
+          min-width="140"
+          to="/contact"
+          variant="outlined"
+          >Contact Us Now</v-btn>
         </v-col>
         </v-lazy>
       </v-row>
+
       <v-row>
         <v-col v-if="$vuetify.display.smAndDown" cols="12">
           <v-lazy
@@ -57,11 +70,11 @@
             <v-timeline-item
               v-for="(item, index) in alertItems"
               :key="index"
-              dot-color="#FFECB3"
+              dot-color=""
               size="small"
             >
               <v-alert
-                color="#FFFDE7"
+                color=""
                 :value="true"
               >
               <div class="text-h6">{{ item.name }}</div>
@@ -107,7 +120,7 @@
           </v-timeline>
         </v-col> -->
       </v-row>
-      <v-divider v-if="$vuetify.display.smAndDown"></v-divider>
+      <v-divider v-if="$vuetify.display.smAndDown" class="mt-5"></v-divider>
       <v-row>
         <v-lazy v-if="$vuetify.display.smAndDown"
         :min-height="auto"
@@ -115,7 +128,7 @@
         transition="slide-x-reverse-transition"
       >
         <v-col style="justify-content:center!important" cols="12">
-            <h5 style="font-family:bare; font-size:20px" class="pl-6">A feel of our presence</h5>
+            <h5 style="font-family:bare; font-size:20px" class="pl-6 my-6">A feel of our presence</h5>
         </v-col>
         </v-lazy>
       </v-row>
@@ -139,7 +152,7 @@
                 plain
                 class="content-icon"
                 @click="props.onClick"
-              ><v-icon icon="mdi-arrow-left"></v-icon></v-btn>
+              ><v-icon icon="mdi:mdi-arrow-left"></v-icon></v-btn>
             </template>
             <template v-slot:next="{ props }">
               <v-btn
@@ -147,7 +160,7 @@
                 class="content-icon"
                 @click="props.onClick"
               >
-                <v-icon icon="mdi-arrow-right"></v-icon>
+                <v-icon icon="mdi:mdi-arrow-right"></v-icon>
               </v-btn>
             </template>
             
@@ -213,7 +226,7 @@
         showOverlay: true,
         carouselItems: [
           { type: 'image', src: "/attendants.jpg", aspectRatio: 16 / 9 },
-          { type: 'video', src: "./cocktail.mp4", aspectRatio: 16 / 9 },
+          { type: 'image', src: "/drink.jpg", aspectRatio: 16 / 9 },
           { type: 'image', src: "/popcorn.jpg", aspectRatio: 16 / 9 },
           { type: 'image', src: "/services.jpg", aspectRatio: 16 / 9 },
           { type: 'image', src: "/flyer.jpg", aspectRatio: 16 / 9 }
