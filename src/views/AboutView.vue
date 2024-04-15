@@ -7,31 +7,43 @@
         transition="slide-x-reverse-transition"
       >
         <v-col cols="12">
-            <v-toolbar-title style="font-family: lofty; font-size: 40px" class="pl-6">Who we are</v-toolbar-title>
+            <v-toolbar-title style="font-family: lofty; font-size: 30px" class="my-4">Who we are</v-toolbar-title>
         </v-col>
         </v-lazy>
         </v-row>
         <v-row>
       <v-col>
         <div>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia quae laborum non aliquam odit obcaecati ab, laudantium delectus alias consequuntur, distinctio facere iste totam ex ullam provident esse veniam nihil.
+          <p>Welcome to Ottushdelight Ltd, where innovation meets refreshment in the vibrant heart of Ipaja, Lagos State. We’re not just a beverage company, we’re creators of unforgettable experiences.
             <br>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti facere saepe quidem incidunt neque dolorem, commodi unde laborum, corrupti laboriosam ullam corporis. Ducimus reprehenderit dolorum soluta sunt quis facere magnam!
+            At Ottushdelight, crafting liquid dreams is our passion. We provide drinks management services for events of all sizes, ensuring each gathering is infused with sophistication and refreshment. Our team meticulously curates menus, guaranteeing an unforgettable journey for every guest.
             <br>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque corporis quis cupiditate, quo, rem similique repellendus quibusdam assumenda molestias, cum nobis nisi enim dolorem aut eos perferendis iste quia debitis?
+            Our non-alcoholic cocktails and mocktails are the epitome of indulgence without compromise. From classic concoctions with a modern twist to daring blends, each sip is a celebration of creativity and craftsmanship.
             <br>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti tempora reprehenderit, quae aperiam a dolore assumenda iste beatae alias culpa soluta nemo consequuntur delectus suscipit rem. Debitis nostrum quam dolores?
+            But that’s not all. Our delectable popcorns are handcrafted with love and seasoned to perfection, offering bite-sized bursts of joy that complement every occasion.
             <br>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem doloremque ex, natus deserunt placeat, magnam nihil quibusdam provident molestias, voluptatibus aperiam nostrum facilis repellat ipsa deleniti voluptatum! Iure, ab placeat.
-          </p>
+            Why choose Ottushdelight? Because we’re not just in the business of beverages, we’re in the business of making memories. With every sip, every crunch, and every smile, we invite you to join us on a journey where flavor knows no bounds and every moment is an opportunity to savor the extraordinary.
+            <br>
+            So, whether you’re hosting a soirée, planning a corporate event, or simply seeking a moment of indulgence, trust Ottushdelight to transform the ordinary into the extraordinary. Welcome to Ottushdelight Ltd, where every sip is a celebration!</p>
         </div>
     </v-col>
   </v-row>
   <v-row>
-    <v-toolbar-title>
-      Meet The Team
-    </v-toolbar-title>
+    <v-lazy 
+    :min-height="auto"
+    :options="{'threshold':0.7}"
+    transition="slide-x-reverse-transition"
+  >
+    <v-col cols="12">
+        <v-toolbar-title style="font-family: lofty; font-size: 28px" class="my-5">Meet the Family</v-toolbar-title>
+    </v-col>
+    </v-lazy>
   </v-row>
+  <v-lazy 
+  :min-height="auto"
+  :options="{'threshold':0.7}"
+  transition="slide-y-reverse-transition"
+>
   <v-row>
     <v-col v-for="(items, index) in cardItems" :key="index" cols="12" sm="6" md="4" lg="3">
       <v-hover v-slot="{ isHovering, props }">
@@ -55,6 +67,7 @@
       </v-hover>
     </v-col>
   </v-row>
+  </v-lazy>
  </v-container>
 </template>
 

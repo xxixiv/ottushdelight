@@ -51,7 +51,7 @@
     <v-row justify="space-around"
     class="pt-8">
     <v-btn v-for="(icons, index) in iconItems" :key="index" class="sm-ml-n4 icon-btn" :href="icons.a" style=" background: transparent!important" target="_blank" rel="noopener noreferrer">
-        <v-icon :icon="icons.icon" size="large"  class="" style="cursor: pointer;"></v-icon>
+        <v-icon :icon="icons.icon" size="medium"  class="" style="cursor: pointer;"></v-icon>
     </v-btn>
     </v-row>
   
@@ -115,7 +115,7 @@
     justify="center"
     align-content="center"
     class="d-none d-sm-flex">
-    <v-btn v-for="(icons, index) in iconItems" :key="index" class="sm-ml-n4 md-pr-0" :href="icons.a" style=" text-decoration: none;" target="_blank" rel="noopener noreferrer">
+    <v-btn v-for="(icons, index) in iconItems" :key="index" class="sm-ml-n7 md-pr-0" :href="icons.a" style=" text-decoration: none;" target="_blank" rel="noopener noreferrer">
       <!-- <a :href="icons.a" target="_blank" rel="noopener noreferrer" style=""> -->
         <v-icon :icon="icons.icon" size="large"  class="" style="cursor: pointer;"></v-icon>
       <!-- </a> -->

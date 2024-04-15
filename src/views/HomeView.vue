@@ -23,8 +23,8 @@
           </div>
         </v-col>
       </v-row>
-      <v-row justify-md="center">
-        <v-lazy v-if="$vuetify.display.smAndDown"
+      <v-row justify="center">
+        <v-lazy v-show="false"
         :min-height="auto"
         :options="{'threshold':0.7}"
         transition="slide-x-reverse-transition"
@@ -34,14 +34,14 @@
             <h5 style="font-family:bare; font-size:40px" class="pl-6">We deal in</h5>
         </v-col>
         </v-lazy>
-        <v-lazy v-if="$vuetify.display.mdAndUp"
+        <v-lazy
         :min-height="auto"
         :options="{'threshold':0.7}"
         transition="slide-x-reverse-transition"
       >
         <v-col>
-            <h2 style="font-family: sunny; font-size:60px;" class="d-flex justify-center">OTTUSH DELIGHT</h2>
-            <h5 style="font-family:lofty; font-size:40px" class="">Delightinging your buds with our Exceptional tastes</h5>
+            <h2 style="font-family: sunny; font-size:60px;" class="d-flex justify-center font-h2">OTTUSH DELIGHT</h2>
+            <h5 style="font-family:lofty; font-size:30px" class="font">Delightinging your buds with our Exceptional tastes</h5>
             <v-divider ></v-divider>
             <div  v-for="(item, index) in alertItems"
             :key="index">
@@ -60,7 +60,7 @@
       </v-row>
 
       <v-row>
-        <v-col v-if="$vuetify.display.smAndDown" cols="12">
+        <v-col v-show="false" cols="12">
           <v-lazy
           :min-height="auto"
           :options="{'threshold':1}"
@@ -120,14 +120,14 @@
           </v-timeline>
         </v-col> -->
       </v-row>
-      <v-divider v-if="$vuetify.display.smAndDown" class="mt-5"></v-divider>
+      <v-divider class="mt-5"></v-divider>
       <v-row>
-        <v-lazy v-if="$vuetify.display.smAndDown"
+        <v-lazy
         :min-height="auto"
         :options="{'threshold':0.7}"
         transition="slide-x-reverse-transition"
       >
-        <v-col style="justify-content:center!important" cols="12">
+        <v-col cols="12">
             <h5 style="font-family:bare; font-size:20px" class="pl-6 my-6">A feel of our presence</h5>
         </v-col>
         </v-lazy>
@@ -144,10 +144,10 @@
             height="auto"
             hide-delimiters
             @change="handleCarouselChange"
+            cycle
             show-arrows="hover"
-            show-arrows-on-hover
           >
-            <template v-slot:prev="{ props }">
+            <!-- <template v-slot:prev="{ props }">
               <v-btn
                 plain
                 class="content-icon"
@@ -162,21 +162,19 @@
               >
                 <v-icon icon="mdi:mdi-arrow-right"></v-icon>
               </v-btn>
-            </template>
+            </template> -->
             
             <v-carousel-item
               v-for="(item, index) in carouselItems"
               :key="index"
               :src="item.src"
               :aspect-ratio="item.aspectRatio"
-              height="50%"
               width="100%"
               draggable="true"
               
             >
               <template v-if="item.type === 'image'">
-                <v-skeleton-loader type="image">
-                  <v-img :src="item.src" :aspect-ratio="item.aspectRatio" style="object-fit: cotain;" /></v-skeleton-loader>
+                  <v-img :src="item.src" :aspect-ratio="item.aspectRatio" style="object-fit: cotain;" />
               </template>
               <template v-else-if="item.type === 'video'">
                 <video
@@ -194,22 +192,23 @@
           </v-carousel>
           </v-lazy>
         </v-col>
-        <!-- </v-row>
-        <v-row> -->
-          <v-row v-if="$vuetify.display.smAndDown">
-            <v-divider></v-divider>
+     
+          <v-col>
+            <v-divider class="my-5" v-if="$vuetify.display.smAndDown"></v-divider>
             <v-lazy
             :min-height="auto"
             :options="{'threshold':0.7}"
             transition="slide-x-transition"
           >
-            <v-col style="justify-content:center!important" cols="12">
-                <h6 style="font-family:bare; font-size:20px" class="pl-6">Get a qouta for your events here</h6>
+            <v-col justify-md="space-around">
+                <h6 style="font-family:bare; font-size:20px" class="pl-6 ">Get a qouta for your events here</h6>
             </v-col>
             </v-lazy>
-          </v-row>
+          </v-col>
+          
           <event-calc></event-calc>
-      </v-row>
+        </v-row>
+      
     </v-container>
   </template>
 
@@ -225,11 +224,14 @@
         showLoading: false,
         showOverlay: true,
         carouselItems: [
+          { type: 'image', src: "/images 6.jpg", aspectRatio: 16 / 9 },
+          { type: 'image', src: "/images 10.jpg", aspectRatio: 16 / 9 },
+          { type: 'image', src: "/images 9.jpg", aspectRatio: 16 / 9 },
           { type: 'image', src: "/attendants.jpg", aspectRatio: 16 / 9 },
-          { type: 'image', src: "/drink.jpg", aspectRatio: 16 / 9 },
-          { type: 'image', src: "/popcorn.jpg", aspectRatio: 16 / 9 },
-          { type: 'image', src: "/services.jpg", aspectRatio: 16 / 9 },
-          { type: 'image', src: "/flyer.jpg", aspectRatio: 16 / 9 }
+          { type: 'image', src: "/images 10.webp", aspectRatio: 16 / 9 },
+          { type: 'image', src: "/images 4.jpg", aspectRatio: 16 / 9 },
+          { type: 'image', src: "/images 12.jpg", aspectRatio: 16 / 9 },
+          { type: 'image', src: "/images 11.webp", aspectRatio: 16 / 9 }
         ],
         alertItems: [
           {name: 'Drinks Mangement', text: 'Leave it to us to handle your drinks without stress', dot: '', color: ''},
@@ -274,6 +276,16 @@
   </script>
 
   <style scoped>
+  @media only screen and (max-width: 450px) {
+    .font {
+        font-size: 18px!important; /* Adjust this value as needed */
+    }
+    .font-h2 {
+      font-size: 48px!important;
+    }
+
+}
+
   .content-icon{
     background: none!important;
     box-shadow: none!important;;
