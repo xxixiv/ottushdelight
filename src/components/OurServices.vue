@@ -93,7 +93,7 @@ export default {
       images: [],
       loading: false,
       page: 1, // initial page number
-      perPage: 10,
+      perPage: 12,
       services: [
         {
           name: 'Weddings',
@@ -101,15 +101,10 @@ export default {
           image: 'https://via.placeholder.com/300',
         },
         {
-          name: 'Namings',
+          name: 'Namings and Birthdays',
           description: 'Description of Service 2',
           image: 'https://via.placeholder.com/300',
         },
-        {
-          name: 'Birthdays',
-          description: 'Description of Service 2',
-          image: 'https://via.placeholder.com/300',
-        }, 
         {
           name: 'Drinks management',
           description: 'Description of Service 2',
@@ -121,7 +116,7 @@ export default {
   computed: {
     allImagesLoaded() {
       // Check if all images have been loaded
-      return this.images.length >= this.totalImages;
+      return this.images.length >= this.perPage;
     },
   },
   methods: {

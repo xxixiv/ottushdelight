@@ -11,11 +11,7 @@
                 <v-card>
                 <v-list lines="one">
                     <v-list-item-title class="ml-4" style="font-family: sunny;">Contacts</v-list-item-title>
-                    
-                        
-                            <v-list-item>Email: example@example.com</v-list-item>
-                            <v-list-item>Phone: +123456789</v-list-item>
-                            <v-list-item>Address: 123 Main Street, City</v-list-item>
+                            <v-list-item>Address: Ipaja, Lagos</v-list-item>
                 </v-list>
                         </v-card>
             </v-lazy>
@@ -25,12 +21,9 @@
                 <v-card>
                     <v-list lines="one">
                     <v-list-item-title class="ml-4" style="font-family: sunny;">Socials</v-list-item-title>
-                   
-                       
-                            <v-list-item>Facebook: <a href="https://www.facebook.com/example">example</a></v-list-item>
-                            <v-list-item>Twitter: <a href="https://twitter.com/example">@example</a></v-list-item>
-                            <v-list-item>Instagram: <a href="https://www.instagram.com/example">example</a></v-list-item>
-                        
+                    <div v-for="(icons, index) in iconItems" :key="index">
+                    <v-list-item>{{icons.name}}: <a :href="icons.a" style=" text-decoration: none;" target="_blank" rel="noopener noreferrer">{{ icons.at }}</a></v-list-item>
+                    </div>
                     
                 </v-list>
                 </v-card>
@@ -40,8 +33,14 @@
 </v-container>
 </template>
 
+
 <script>
 export default {
+    props: {
+    iconItems:{
+      type: Array
+    }
+  },
   name: 'ContactUs', // This sets the name of the component
   data() {
     return {

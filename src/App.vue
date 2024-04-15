@@ -4,15 +4,16 @@
       <div :style="{ }">
       <NavBar :menuItems="menuItems" :iconItems="iconItems" />
       <v-expand-transition>
-        <RouterView />
+        <RouterView :iconItems="iconItems" />
+        <v-progress-linear
+        v-if="isLoading"
+        :active="isLoading"
+        color="primary"
+        height="2"
+      ></v-progress-linear>
       </v-expand-transition>
       <FooTer :menuItems="menuItems" :iconItems="iconItems"/>
-      <v-progress-linear
-      v-if="isLoading"
-      :active="isLoading"
-      color="primary"
-      height="2"
-    ></v-progress-linear>
+     
   </div>
     </v-main>
   </v-app>
@@ -52,11 +53,11 @@ export default {
           //{ title: 'Portfolio', path: '/portfolio' },
      ],
      iconItems: [
-          {icon: 'mdi:mdi-instagram', a: 'https://www.instagram.com/ottushdelight/'},
-          {icon: 'mdi:mdi-whatsapp', a: 'https://wa.me/2348137928778?text=Hi%20I\'m%20interested%20in%20using%20your%20services'},
-          { icon: 'mdi:mdi-email', a: 'mailto:Ottushdelight@gmail.com' },
-          { icon: 'fa-brands fa-tiktok', a: 'https://www.tiktok.com/@ottushdelight' },
-          { icon: 'mdi:mdi-phone', a: 'tel:+2348137928778' }
+          {name:'Instagram' ,icon: 'mdi:mdi-instagram', a: 'https://www.instagram.com/ottushdelight/', at:'Check Our Instagram @ottushdelight'},
+          {name:'Whatsapp' ,icon: 'mdi:mdi-whatsapp', a: 'https://wa.me/2348137928778?text=Hi%20I\'m%20interested%20in%20using%20your%20services', at:'Chat us Now'},
+          {name:'Email' , icon: 'mdi:mdi-email', a: 'mailto:Ottushdelight@gmail.com', at:'Mail us Now'},
+          {name:'Tiktok' , icon: 'fa-brands fa-tiktok', a: 'https://www.tiktok.com/@ottushdelight', at:'Check our Tiktok @ottushdelight'},
+          {name:'Phone No' , icon: 'mdi:mdi-phone', a: 'tel:+2348137928778', at:'Call us Now'}
      ],
      
      logoimages: [

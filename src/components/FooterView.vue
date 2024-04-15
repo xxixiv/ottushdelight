@@ -7,29 +7,28 @@
   class="pb-6"
   v-if="$vuetify.display.smAndDown">
 </v-divider>
-  <v-row 
+<v-row 
   justify="center"
   class="hidden-md-and-up" 
-  no-gutters>
-    <v-col>
-      <p>Navigation</p>
+  >
       <v-btn
       v-for="item in menuItems"
       :key="item.title"
       :to="item.path"
-      density="compact"
+      density="default"
       rounded
-      variant="plain"
+      variant="text"
       size="small"
-      class="hidden-sm-and-down text-decoration-none d-table"
+      class="hidden-sm-and-down text-decoration-none d-flex my-6"
       v-ripple.center
+      style=";"
       >
       {{ item.title }}
       </v-btn>
-    </v-col>
+    
     <v-spacer></v-spacer>
   </v-row>
-    <div class="px-4 py-2 text-center w-100">
+    <div class="px-4  text-center w-100">
       All Rights Reserved<sup> <v-icon class="mr-2" size="small">mdi mdi-copyright</v-icon></sup> {{ new Date().getFullYear() }} <strong>Ottush Delights</strong>
     </div>
   </v-footer>

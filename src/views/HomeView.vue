@@ -5,6 +5,7 @@
         style="padding:0 0!important;">
           <div style="position: relative;">
             <div style="height:450px; background: #313131; opacity: 0.8; align-content:center">
+
               <video
                 ref="videoPlayer"
                 src="./vid2.mp4"
@@ -21,6 +22,11 @@
               <h2 style="color: white; font-size: 20px; font-weight: bold;">Ottush delight</h2>
             </div>
           </div>
+          <template v-slot:placeholder>
+            <v-row align="center" class="fill-height ma-0" justify="center">
+              <v-progress-circular v-if="!allImagesLoaded" color="grey-lighten-5" indeterminate></v-progress-circular>
+            </v-row>
+          </template>
         </v-col>
       </v-row>
       <v-row justify="center">
@@ -121,85 +127,97 @@
         </v-col> -->
       </v-row>
       <v-divider class="mt-5"></v-divider>
-      <v-row>
-        <v-lazy
+      <v-row justify-md="flex-start">
+        
+        <v-col cols="12" lg="6">
+          <v-lazy
         :min-height="auto"
         :options="{'threshold':0.7}"
         transition="slide-x-reverse-transition"
       >
-        <v-col cols="12">
             <h5 style="font-family:bare; font-size:20px" class="pl-6 my-6">A feel of our presence</h5>
-        </v-col>
-        </v-lazy>
-      </v-row>
-      <v-row>
-        <v-col :cols="$vuetify.display.smAndDown ? 12 : 6">
-          <v-lazy
-          :min-height="auto"
-          :options="{'threshold':0.8}"
-          transition="fade-transition"
-          >
-
-          <v-carousel 
-            height="auto"
-            hide-delimiters
-            @change="handleCarouselChange"
-            cycle
-            show-arrows="hover"
-          >
-            <!-- <template v-slot:prev="{ props }">
-              <v-btn
-                plain
-                class="content-icon"
-                @click="props.onClick"
-              ><v-icon icon="mdi:mdi-arrow-left"></v-icon></v-btn>
-            </template>
-            <template v-slot:next="{ props }">
-              <v-btn
-                plain
-                class="content-icon"
-                @click="props.onClick"
+          </v-lazy>
+          </v-col>
+        
+      
+            <v-col lg="6" v-if="$vuetify.display.mdAndUp">
+                <v-lazy
+                :min-height="auto"
+                :options="{'threshold':0.7}"
+                transition="slide-x-transition"
               >
-                <v-icon icon="mdi:mdi-arrow-right"></v-icon>
-              </v-btn>
-            </template> -->
-            
-            <v-carousel-item
-              v-for="(item, index) in carouselItems"
-              :key="index"
-              :src="item.src"
-              :aspect-ratio="item.aspectRatio"
-              width="100%"
-              draggable="true"
-              
+                    <h6 style="font-family:bare; font-size:20px" class="mt-6">Get a qouta for your events here</h6>
+                </v-lazy>
+
+         </v-col> 
+        </v-row>
+        <v-row justify="center">
+          <v-col :cols="$vuetify.display.xs ? 12 : 6">
+            <v-lazy
+            :min-height="auto"
+            :options="{'threshold':0.8}"
+            transition="fade-transition"
             >
-              <template v-if="item.type === 'image'">
-                  <v-img :src="item.src" :aspect-ratio="item.aspectRatio" style="object-fit: cotain;" />
+  
+            <v-carousel 
+              height="auto"
+              hide-delimiters
+              @change="handleCarouselChange"
+              cycle
+              show-arrows="hover"
+            >
+              <!-- <template v-slot:prev="{ props }">
+                <v-btn
+                  plain
+                  class="content-icon"
+                  @click="props.onClick"
+                ><v-icon icon="mdi:mdi-arrow-left"></v-icon></v-btn>
               </template>
-              <template v-else-if="item.type === 'video'">
-                <video
-                ref="videoPlayer"
+              <template v-slot:next="{ props }">
+                <v-btn
+                  plain
+                  class="content-icon"
+                  @click="props.onClick"
+                >
+                  <v-icon icon="mdi:mdi-arrow-right"></v-icon>
+                </v-btn>
+              </template> -->
+              
+              <v-carousel-item
+                v-for="(item, index) in carouselItems"
+                :key="index"
                 :src="item.src"
                 :aspect-ratio="item.aspectRatio"
-                loop
-                muted
-                preload="auto"
-                style="width: 100%; height: 100%; object-fit: contain;"
-              ></video>
-              </template>
-              <template v-slot:placeholder>
-                <v-row align="center" class="fill-height ma-0" justify="center">
-                  <v-progress-circular color="grey-lighten-5" indeterminate></v-progress-circular>
-                </v-row>
-              </template>
-            </v-carousel-item>
-
-          </v-carousel>
-          </v-lazy>
-        </v-col>
-     
-          <v-col>
-            <v-divider class="my-5" v-if="$vuetify.display.smAndDown"></v-divider>
+                width="auto"
+                draggable="true"
+                
+              >
+                <template v-if="item.type === 'image'">
+                    <v-img :src="item.src" :aspect-ratio="item.aspectRatio" style="object-fit: cotain;" />
+                </template>
+                <template v-else-if="item.type === 'video'">
+                  <video
+                  ref="videoPlayer"
+                  :src="item.src"
+                  :aspect-ratio="item.aspectRatio"
+                  loop
+                  muted
+                  preload="auto"
+                  style="width: 100%; height: 100%; object-fit: contain;"
+                ></video>
+                </template>
+                <template v-slot:placeholder>
+                  <v-row align="center" class="fill-height ma-0" justify="center">
+                    <v-progress-circular color="grey-lighten-5" indeterminate></v-progress-circular>
+                  </v-row>
+                </template>
+              </v-carousel-item>
+  
+            </v-carousel>
+            </v-lazy>
+          </v-col>
+          <v-col v-if="$vuetify.display.smAndDown">
+            <v-divider class="my-5" ></v-divider>
             <v-lazy
             :min-height="auto"
             :options="{'threshold':0.7}"
@@ -210,9 +228,9 @@
             </v-col>
             </v-lazy>
           </v-col>
-          
           <event-calc></event-calc>
         </v-row>
+      
       
     </v-container>
   </template>

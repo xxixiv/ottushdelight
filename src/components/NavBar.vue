@@ -44,6 +44,11 @@
         v-ripple.center
         >
        {{ item.title }}
+       <template v-slot:placeholder>
+        <v-row align="center" class="fill-height ma-0" justify="center">
+          <v-progress-circular v-if="!allImagesLoaded" color="grey-lighten-5" indeterminate></v-progress-circular>
+        </v-row>
+      </template>
       </v-list-item>
     </v-hover>
     </v-list>
@@ -54,6 +59,10 @@
         <v-icon :icon="icons.icon" size="medium"  class="" style="cursor: pointer;"></v-icon>
     </v-btn>
     </v-row>
+
+    <v-footer absolute
+    app><div class="px-4  text-center w-100"> <strong>Ottush Delights</strong><sup> <v-icon class="mr-2" size="small">mdi mdi-copyright</v-icon></sup>
+    </div></v-footer>
   
   </v-navigation-drawer>
 
