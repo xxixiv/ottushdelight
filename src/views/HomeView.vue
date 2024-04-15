@@ -187,6 +187,11 @@
                 style="width: 100%; height: 100%; object-fit: contain;"
               ></video>
               </template>
+              <template v-slot:placeholder>
+                <v-row align="center" class="fill-height ma-0" justify="center">
+                  <v-progress-circular color="grey-lighten-5" indeterminate></v-progress-circular>
+                </v-row>
+              </template>
             </v-carousel-item>
 
           </v-carousel>
