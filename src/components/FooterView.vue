@@ -28,7 +28,7 @@
     
     <v-spacer></v-spacer>
   </v-row>
-    <div class="px-4  text-center w-100">
+    <div class="px-4  text-center w-90">
       All Rights Reserved<sup> <v-icon class="mr-2" size="small">mdi mdi-copyright</v-icon></sup> {{ new Date().getFullYear() }} <strong>Ottush Delights</strong>
     </div>
   </v-footer>
