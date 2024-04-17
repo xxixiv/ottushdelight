@@ -18,23 +18,3 @@
     font-family: 'feas';
     src: url('@/assets/fonts/Feasibly.ttf') format('truetype');
   }
-
-  @font-face {
-    font-family: 'wig';
-    src: url('@/assets/fonts/wiggly.ttf') format('truetype');
-  }
-
-  @font-face {
-    font-family: 'corn';
-    src: url('@/assets/fonts/corn.ttf') format('truetype');
-  }
-
-  @font-face {
-    font-family: 'feas';
-    src: url('@/assets/fonts/Feasibly.ttf') format('truetype');
-  }
-
-  @font-face {
-    font-family: 'glue';
-    src: url('@/assets/fonts/glue.ttf') format('truetype');
-  }

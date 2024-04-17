@@ -69,12 +69,12 @@
   <v-app-bar app
   height="80">
   <router-link to="/"
-  class="mr-0">
+  class="">
         <div 
         class="img">
         <v-img
         class="logoImg ml-n8"
-        :width="300"
+        :width="320"
         aspect-ratio="1/1"
         to="/" style="cursor: pointer"
         src="@/assets/logo.png">
@@ -90,7 +90,7 @@
         density="compact"
         rounded
         size="large"
-        class="hidden-sm-and-down text-decoration-none md-ml-n5"
+        class="hidden-sm-and-down text-decoration-none mr-3"
         v-ripple.center
         >
         <v-hover
@@ -123,8 +123,8 @@
     <v-row 
     justify="center"
     align-content="center"
-    class="d-none d-sm-table-row">
-    <v-btn v-for="(icons, index) in iconItems" :key="index" class=" sm-pr-0 md-pr-0" :href="icons.a" style=" text-decoration: none;" target="_blank" rel="noopener noreferrer">
+    class="d-none d-sm-flex">
+    <v-btn v-for="(icons, index) in iconItems" :key="index" class="sm-ml-n7 md-pr-0" :href="icons.a" style=" text-decoration: none;" target="_blank" rel="noopener noreferrer">
       <!-- <a :href="icons.a" target="_blank" rel="noopener noreferrer" style=""> -->
         <v-icon :icon="icons.icon" size="large"  class="" style="cursor: pointer;"></v-icon>
       <!-- </a> -->
