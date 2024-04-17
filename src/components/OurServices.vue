@@ -14,13 +14,35 @@
     <v-row>
       <v-col cols="12" md="6" sm="12" xs="12" lg="4" v-for="(service, index) in services" :key="index">
         <v-card class="service-card" outlined @mouseover="hovered = index" @mouseleave="hovered = null">
-          <v-img :src="service.image" height="200">
-            <v-expand-transition>
-              <v-overlay v-if="hovered === index" absolute color="rgba(0, 0, 0, 0.7)">
-                <v-btn color="primary" text @click="openDetails(service)">Learn More</v-btn>
-              </v-overlay>
-            </v-expand-transition>
-          </v-img>
+          <!-- Conditional rendering based on content type -->
+          <template v-if="service.type === 'image'">
+            <v-img :src="service.content" height="500" cover></v-img>
+          </template>
+          <template v-else-if="service.type === 'video'">
+            <div>
+              <video
+              class="video-container"
+                id="myVideo"
+                width="100%"
+                height="500"
+                :src="service.content"
+                @ended="resetIcon"
+              ></video>
+              <v-btn 
+              class="centered-btn"
+              @click="toggleVideo" 
+              icon
+              :class="{ 'visible-btn': showBtn }">
+                <v-icon>{{ playIcon }}</v-icon>
+              </v-btn>
+            </div>
+        
+          </template>
+          <v-expand-transition>
+            <v-overlay v-if="hovered === index" absolute color="rgba(0, 0, 0, 0.7)">
+              <v-btn color="primary" text @click="openDetails(service)">Learn More</v-btn>
+            </v-overlay>
+          </v-expand-transition>
           <v-card-title>{{ service.name }}</v-card-title>
           <v-card-text>{{ service.description }}</v-card-text>
         </v-card>
@@ -88,6 +110,9 @@ export default {
   name: 'ServicePage',
   data() {
     return {
+      playIcon: 'mdi:mdi-play',
+      showBtn: false,
+      btnVisible: false,
       hovered: null,
       disabled: false,
       images: [],
@@ -98,17 +123,21 @@ export default {
         {
           name: 'Weddings',
           description: 'Description of Service 1',
-          image: 'https://via.placeholder.com/300',
+          type: 'image',
+          content: 'https://via.placeholder.com/300',
         },
         {
           name: 'Namings and Birthdays',
           description: 'Description of Service 2',
-          image: 'https://via.placeholder.com/300',
+          type: 'video',
+          content: 'VID-20240413-WA0009.mp4',
+          isVideoReady: false
         },
         {
           name: 'Drinks management',
-          description: 'Description of Service 2',
-          image: 'https://via.placeholder.com/300',
+          description: 'Description of Service 3',
+          type: 'image',
+          content: 'https://via.placeholder.com/300',
         },
       ],
     };
@@ -143,6 +172,18 @@ export default {
         this.loading = false;
       }, 1000);
     },
+    toggleVideo() {
+      const video = document.getElementById("myVideo");
+      if (video.paused) {
+        video.play();
+        this.playIcon = 'mdi:mdi-pause'; // update icon
+      } else {
+        video.pause();
+        this.playIcon = 'mdi:mdi-play'; // update icon
+      }
+    },
+
+
     scrollImages(direction) {
       const container = document.querySelector('.scroll-container');
       if (direction === 'left') {
@@ -167,11 +208,55 @@ export default {
     getInfiniteScrollDirection() {
       return this.$vuetify.display.smAndDown ? 'vertical' : 'horizontal';
     },
+      resetIcon() {
+      this.playIcon = 'mdi:mdi-play';
+    }
   },
+  
+  mounted() {
+  const video = document.getElementById("myVideo");
+  let timeoutId = null;
+  video.addEventListener("mouseover", () => {
+    if (timeoutId) clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      this.showBtn = true;
+      this.btnVisible = true;
+    }, 100); // 100ms delay
+  });
+  video.addEventListener("mouseout", () => {
+    if (this.btnVisible) {
+      this.showBtn = false;
+      this.btnVisible = false;
+    }
+  });
+}
+
+
+
 };
 </script>
 
 <style scoped>
+.video-container {
+  position: relative;
+  width: 100%;
+}
+.v-btn:not(.visible-btn) {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.visible-btn {
+  opacity: 1;
+}
+
+
+.centered-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .scroll-container {
   overflow-x: hidden!important;;
 }
