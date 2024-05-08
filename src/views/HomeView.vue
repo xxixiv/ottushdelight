@@ -47,11 +47,11 @@
       >
         <v-col>
             <h2 style="font-family: sunny; font-size:60px;" class="d-flex justify-center font-h2">OTTUSH DELIGHT</h2>
-            <h5 style="font-family:lofty; font-size:30px" class="font">Delightinging your buds with our Exceptional tastes</h5>
+            <h5 style="font-family: corn; font-size:30px; letter-spacing: 0.2rem;" class="justify-center font">Delightinging your buds with our Exceptional tastes</h5>
             <v-divider ></v-divider>
             <div  v-for="(item, index) in alertItems"
             :key="index">
-            <h6 style=" font-family:sunny; font-size:30px" class="py-5">{{ item.name }}</h6>
+            <h6 style="font-family: corn; font-size:30px;" class="py-5">{{ item.name }}</h6>
             <v-divider></v-divider>
           </div>
           <v-btn
@@ -65,7 +65,7 @@
         </v-lazy>
       </v-row>
 
-      <v-row>
+      <v-row style="">
         <v-col v-show="false" cols="12">
           <v-lazy
           :min-height="auto"
@@ -127,7 +127,7 @@
         </v-col> -->
       </v-row>
       <v-divider class="mt-5"></v-divider>
-      <v-row justify-md="flex-start">
+      <v-row justify-md="flex-start" class="d-flex">
         
         <v-col cols="12" lg="6">
           <v-lazy
@@ -135,7 +135,7 @@
         :options="{'threshold':0.7}"
         transition="slide-x-reverse-transition"
       >
-            <h5 style="font-family:bare; font-size:20px" class="pl-6 my-6">A feel of our presence</h5>
+            <h5 style="font-family: corn; font-size:20px" class="pl-6 my-6 sm-mx-6">The Ottush Deight moments</h5>
           </v-lazy>
           </v-col>
         
@@ -146,13 +146,13 @@
                 :options="{'threshold':0.7}"
                 transition="slide-x-transition"
               >
-                    <h6 style="font-family:bare; font-size:20px" class="mt-6">Get a qouta for your events here</h6>
+                    <h6 style="font-family:corn; font-size:20px" class="mt-6">Get a qouta for your events here</h6>
                 </v-lazy>
 
          </v-col> 
         </v-row>
         <v-row justify="center">
-          <v-col :cols="$vuetify.display.xs ? 12 : 6">
+          <v-col :cols="$vuetify.display.smAndDown ? 12 : 6">
             <v-lazy
             :min-height="auto"
             :options="{'threshold':0.8}"
@@ -224,7 +224,7 @@
             transition="slide-x-transition"
           >
             <v-col justify-md="space-around">
-                <h6 style="font-family:bare; font-size:20px" class="pl-6 ">Get a qouta for your events here</h6>
+                <h6 style="font-family:corn; font-size:20px" class="pl-2 ">Get a qouta for your events here</h6>
             </v-col>
             </v-lazy>
           </v-col>
@@ -301,7 +301,8 @@
   <style scoped>
   @media only screen and (max-width: 450px) {
     .font {
-        font-size: 18px!important; /* Adjust this value as needed */
+        font-size: 18px!important;
+        letter-spacing: 0.05rem!important;
     }
     .font-h2 {
       font-size: 48px!important;
