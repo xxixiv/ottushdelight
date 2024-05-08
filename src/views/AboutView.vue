@@ -7,7 +7,7 @@
         transition="slide-x-reverse-transition"
       >
         <v-col cols="12">
-            <v-toolbar-title style="font-family: lofty; font-size: 30px" class="my-4">Who we are</v-toolbar-title>
+            <v-toolbar-title style="font-family: lofty; font-size: 25px" class="my-4">Who we are</v-toolbar-title>
         </v-col>
         </v-lazy>
         </v-row>
@@ -35,7 +35,7 @@
     transition="slide-x-reverse-transition"
   >
     <v-col cols="12">
-        <v-toolbar-title style="font-family: lofty; font-size: 28px" class="my-5">The Ottush Journey</v-toolbar-title>
+        <v-toolbar-title style="font-family: lofty; font-size: 23px" class="my-5">The Ottush Journey</v-toolbar-title>
     </v-col>
     </v-lazy>
   </v-row>
@@ -61,7 +61,7 @@
     transition="slide-x-reverse-transition"
   >
     <v-col cols="12">
-        <v-list-item-subtitle style="font-family: lofty; font-size: 28px" class="my-5">The Ottush Journey</v-list-item-subtitle>
+        <v-list-item-subtitle style=" font-size: 18px" class="my-5">Hi, I'm</v-list-item-subtitle>
     </v-col>
     </v-lazy>
   </v-col>
