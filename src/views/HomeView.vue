@@ -247,13 +247,20 @@
         showLoading: false,
         showOverlay: true,
         carouselItems: [
-          { type: 'image', src: "/images 6.jpg", aspectRatio: 16 / 9 },
           { type: 'image', src: "/images 10.jpg", aspectRatio: 16 / 9 },
           { type: 'image', src: "/images 9.jpg", aspectRatio: 16 / 9 },
           { type: 'image', src: "/attendants.jpg", aspectRatio: 16 / 9 },
           { type: 'image', src: "/images 10.webp", aspectRatio: 16 / 9 },
-          { type: 'image', src: "/images 4.jpg", aspectRatio: 16 / 9 },
           { type: 'image', src: "/images 12.jpg", aspectRatio: 16 / 9 },
+          { type: 'image', src: "/moments 2.webp", aspectRatio: 16 / 9 },
+          { type: 'image', src: "/moments 3.jpg", aspectRatio: 16 / 9 },
+          { type: 'image', src: "/moments 6.webp", aspectRatio: 16 / 9 },
+          { type: 'image', src: "/moments 1.jpg", aspectRatio: 16 / 9 },
+          { type: 'image', src: "/moments 1.webp", aspectRatio: 16 / 9 },
+          { type: 'image', src: "/moments 5.webp", aspectRatio: 16 / 9 },
+          { type: 'image', src: "/images 4.jpg", aspectRatio: 16 / 9 },
+          { type: 'image', src: "/moments 9.webp", aspectRatio: 16 / 9 },
+          { type: 'image', src: "/moments 10.webp", aspectRatio: 16 / 9 },
           { type: 'image', src: "/images 11.webp", aspectRatio: 16 / 9 }
         ],
         alertItems: [
