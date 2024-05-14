@@ -52,7 +52,10 @@
             <v-divider ></v-divider>
             <div  v-for="(item, index) in alertItems"
             :key="index">
-            <h6 style="font-family: corn; font-size:30px;" class="py-5">{{ item.name }}</h6>
+            <h6 style="font-family: corn; font-size:30px;" class="py-5">{{ item.name }} <v-btn class="align-right" variant="plain" @click="navigateToServices" >
+              <v-icon>mdi:mdi-chevron-right</v-icon>
+            </v-btn>
+             </h6>
             <v-divider></v-divider>
           </div>
           <v-btn
@@ -267,6 +270,7 @@
           {name: 'Exotic Mocktails', text: 'We make Exquisite Mocktails', dot: '', color: ''},
           {name: 'Chocolate fountains', text: 'Only the best of the best', dot: '', color: ''},
           {name: 'Slushies', text: 'You\'ll always want more', dot: '', color: ''},
+          {name: 'Other services rendered', text: 'You\'ll always want more', click: 'navigateToServices', icon: 'mdi:mdi-chevron-right'}
         ],
         videoHeight: '70%', 
         backgroundStyle: '#101010',
@@ -284,7 +288,10 @@
       window.removeEventListener('resize', this.setVideoHeight);
     },
     methods: {
-      handleVideoError() {
+      navigateToServices() {
+    this.$router.push({ path: '/services', hash: '#other-services-rendered' });
+  },
+  handleVideoError() {
         this.showLoading = false; // Hide loading bar
         this.showOverlay = true; // Show overlay text
       },    handleCarouselChange() {
@@ -326,4 +333,9 @@
   .v-carousel:hover .content-icon {
     opacity: 1;
   }
+
+
+.align-right {
+  float: right;
+}
   </style>
