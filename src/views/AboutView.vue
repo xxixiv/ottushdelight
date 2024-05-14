@@ -14,17 +14,16 @@
         <v-row>
       <v-col>
         <div>
-          <p>Welcome to Ottush delight Ltd, where innovation meets refreshment in the vibrant heart of Ipaja, Lagos State. We’re not just a beverage company, we’re creators of unforgettable experiences.
+          <p>Welcome to Ottush Delight Ltd., a creative and versatile brand dedicated to serving hygienically-prepared and beautifully garnished cocktails at events of all sizes, ensuring each sip is a delightful experience.
             <br>
-            At Ottush delight, crafting liquid dreams is our passion. We provide drinks management services for events of all sizes, ensuring each gathering is infused with sophistication and refreshment. Our team meticulously curates menus, guaranteeing an unforgettable journey for every guest.
+            We also specialize in drinks management services and offer bespoke mocktail designs, bottled mocktails, as well as a variety of treats including popcorn, candy floss, and chocolate fountain, all designed to enhance corporate, social, and intimate events.
             <br>
-            Our non-alcoholic cocktails and mocktails are the epitome of indulgence without compromise. From classic concoctions with a modern twist to daring blends, each sip is a celebration of creativity and craftsmanship.
+            At Ottush Delight, we are driven by our passion for crafting unforgettable experiences, guided by our core values of creativity and uncompromising quality. Our dedicated team is committed to elevating the art of mixology, ensuring that each cocktail we serve is a masterpiece of flavour and presentation.
             <br>
-            But that’s not all. Our delectable popcorns are handcrafted with love and seasoned to perfection, offering bite-sized bursts of joy that complement every occasion.
+            Our diverse range of products and services are tailored to meet the unique needs of our clients. Whether it's a wedding celebration, a private gathering, a lively festival, or a professional corporate event, Ottush Delight is here to exceed your expectations.
             <br>
-            Why choose Ottush delight? Because we’re not just in the business of beverages, we’re in the business of making memories. With every sip, every crunch, and every smile, we invite you to join us on a journey where flavor knows no bounds and every moment is an opportunity to savor the extraordinary.
-            <br>
-            So, whether you’re hosting a soirée, planning a corporate event, or simply seeking a moment of indulgence, trust Ottush delight to transform the ordinary into the extraordinary. Welcome to Ottush delight Ltd, where every sip is a celebration!</p>
+            Join the ranks of our satisfied clients who enjoy perfectly curated menus for every occasion. Discover how our services can elevate your next event and leave a lasting impression.
+          </p>
         </div>
     </v-col>
   </v-row>

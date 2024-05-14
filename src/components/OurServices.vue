@@ -1,59 +1,6 @@
 <template>
   <v-container fluid>
-    <v-row justify="center" class="mx-9">
-      <v-lazy 
-        :min-height="auto"
-        :options="{'threshold':0.7}"
-        transition="slide-x-reverse-transition"
-      >
-        <v-col style="justify-content:center!important" cols="12">
-            <h5 style="font-family:bare; font-size:20px" class=" my-6">Our Works</h5>
-        </v-col>
-        </v-lazy>
-    </v-row>
-    <v-row>
-      <v-col cols="12" md="6" sm="12" xs="12" lg="4" v-for="(service, index) in services" :key="index">
-        <v-card class="service-card" outlined @mouseover="hovered = index" @mouseleave="hovered = null">
-          
-          <template v-if="service.type === 'image'">
-            <v-img :src="service.content" height="500" cover> <template v-slot:placeholder>
-              <v-row align="center" class="fill-height ma-0" justify="center">
-                <v-progress-circular color="grey-lighten-5" indeterminate></v-progress-circular>
-              </v-row>
-            </template></v-img>
-          </template>
-          <template v-else-if="service.type === 'video'">
-            <v-card>
-            <div>
-              <video
-              class="video-container"
-                id="myVideo"
-                width="100%"
-                height="500"
-                :src="service.content"
-                @ended="resetIcon"
-              ></video>
-              <v-btn 
-              class="centered-btn"
-              @click="toggleVideo" 
-              icon
-              :class="{ 'visible-btn': showBtn }">
-                <v-icon>{{ playIcon }}</v-icon>
-              </v-btn>
-            </div>
-            <template v-slot:placeholder>
-              <v-row align="center" class="fill-height ma-0" justify="center">
-                <v-progress-circular color="grey-lighten-5" indeterminate></v-progress-circular>
-              </v-row>
-            </template>
-            </v-card>
-          </template>
-          
-          <v-card-title>{{ service.name }}</v-card-title>
-          <v-card-text>{{ service.description }}</v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
+    
     <v-row justify-md="center">
       <v-lazy
         :min-height="auto"
@@ -115,6 +62,60 @@
       </v-col>
     </v-row>
   </v-slide-y-reverse-transition>
+  <v-row justify="center" class="mx-9">
+    <v-lazy 
+      :min-height="auto"
+      :options="{'threshold':0.7}"
+      transition="slide-x-reverse-transition"
+    >
+      <v-col style="justify-content:center!important" cols="12">
+          <h5 style="font-family:bare; font-size:20px" class=" my-6">Other Services Rendered</h5>
+      </v-col>
+      </v-lazy>
+  </v-row>
+  <v-row>
+    <v-col cols="12" md="6" sm="12" xs="12" lg="4" v-for="(service, index) in services" :key="index">
+      <v-card class="service-card" outlined @mouseover="hovered = index" @mouseleave="hovered = null">
+        
+        <template v-if="service.type === 'image'">
+          <v-img :src="service.content" height="500" cover> <template v-slot:placeholder>
+            <v-row align="center" class="fill-height ma-0" justify="center">
+              <v-progress-circular color="grey-lighten-5" indeterminate></v-progress-circular>
+            </v-row>
+          </template></v-img>
+        </template>
+        <template v-else-if="service.type === 'video'">
+          <v-card>
+          <div>
+            <video
+            class="video-container"
+              id="myVideo"
+              width="100%"
+              height="500"
+              :src="service.content"
+              @ended="resetIcon"
+            ></video>
+            <v-btn 
+            class="centered-btn"
+            @click="toggleVideo" 
+            icon
+            :class="{ 'visible-btn': showBtn }">
+              <v-icon>{{ playIcon }}</v-icon>
+            </v-btn>
+          </div>
+          <template v-slot:placeholder>
+            <v-row align="center" class="fill-height ma-0" justify="center">
+              <v-progress-circular color="grey-lighten-5" indeterminate></v-progress-circular>
+            </v-row>
+          </template>
+          </v-card>
+        </template>
+        
+        <v-card-title>{{ service.name }}</v-card-title>
+        <v-card-text>{{ service.description }}</v-card-text>
+      </v-card>
+    </v-col>
+  </v-row>
   </v-container>
 </template>
 
@@ -133,18 +134,8 @@ export default {
       { url: '/images 2.jpg', description: 'Image 2 description' },
       { url: '/images 1.webp', description: 'Image 3 description' },
       { url: '/images 2.webp', description: 'Image 3 description' },
-      { url: '/images 3.webp', description: 'Image 3 description' },
-      { url: '/images 4.jpg', description: 'Image 3 description' },
-      { url: '/images 5.jpg', description: 'Image 3 description' },
-      { url: '/images 6.jpg', description: 'Image 3 description' },
-      { url: '/images 7.jpg', description: 'Image 3 description' },
       { url: '/images 4.webp', description: 'Image 3 description' },
-      { url: '/images 8.jpg', description: 'Image 3 description' },
-      { url: '/images 9.jpg', description: 'Image 3 description' },
-      { url: '/images 13.jpg', description: 'Image 3 description' },
       { url: '/images 14.jpg', description: 'Image 3 description' },
-      { url: '/images 15.jpg', description: 'Image 3 description' },
-      { url: '/images 16.jpg', description: 'Image 3 description' },
       { url: '/images 12.webp', description: 'Image 3 description' },
       ],
       loading: false,
@@ -158,14 +149,14 @@ export default {
           content: 'https://via.placeholder.com/300',
         },
         {
-          name: 'Namings and Birthdays',
+          name: 'Drinks management',
           description: 'Description of Service 2',
           type: 'video',
           content: 'VID-20240413-WA0009.mp4',
           isVideoReady: false
         },
         {
-          name: 'Drinks management',
+          name: 'Namings and Birthdays',
           description: 'Description of Service 3',
           type: 'image',
           content: 'https://via.placeholder.com/300',
@@ -312,6 +303,7 @@ export default {
 .video-container {
   position: relative;
   width: 100%;
+  object-fit: cover!important;
 }
 
 .visible-btn {

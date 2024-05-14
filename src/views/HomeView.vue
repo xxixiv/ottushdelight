@@ -7,6 +7,7 @@
             <div style="height:450px; background: #313131; opacity: 0.8; align-content:center">
 
               <video
+              style="object-fit: cover!important;"
                 ref="videoPlayer"
                 src="./vid2.mp4"
                 width="100%"
@@ -253,12 +254,10 @@
           { type: 'image', src: "/images 10.webp", aspectRatio: 16 / 9 },
           { type: 'image', src: "/images 12.jpg", aspectRatio: 16 / 9 },
           { type: 'image', src: "/moments 2.webp", aspectRatio: 16 / 9 },
-          { type: 'image', src: "/moments 3.jpg", aspectRatio: 16 / 9 },
           { type: 'image', src: "/moments 6.webp", aspectRatio: 16 / 9 },
           { type: 'image', src: "/moments 1.jpg", aspectRatio: 16 / 9 },
           { type: 'image', src: "/moments 1.webp", aspectRatio: 16 / 9 },
           { type: 'image', src: "/moments 5.webp", aspectRatio: 16 / 9 },
-          { type: 'image', src: "/images 4.jpg", aspectRatio: 16 / 9 },
           { type: 'image', src: "/moments 9.webp", aspectRatio: 16 / 9 },
           { type: 'image', src: "/moments 10.webp", aspectRatio: 16 / 9 },
           { type: 'image', src: "/images 11.webp", aspectRatio: 16 / 9 }
