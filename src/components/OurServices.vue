@@ -131,6 +131,7 @@ export default {
       disabled: false,
       images: [
       { url: '/images 1.jpg', description: 'Image 1 description' },
+      { url: '/images 22.jpg', description: 'Image 1 description' },
       { url: '/images 2.jpg', description: 'Image 2 description' },
       { url: '/images 1.webp', description: 'Image 3 description' },
       { url: '/images 2.webp', description: 'Image 3 description' },
@@ -152,7 +153,7 @@ export default {
           name: 'Drinks management',
           description: 'Description of Service 2',
           type: 'video',
-          content: 'VID-20240413-WA0009.mp4',
+          content: 'video.mp4',
           isVideoReady: false
         },
         {

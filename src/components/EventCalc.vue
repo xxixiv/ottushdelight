@@ -1,7 +1,7 @@
 <template>
   <v-col :cols="$vuetify.display.smAndDown ? 12 : 6">
     <v-card>
-      <v-card-title>Events Quota Calculator</v-card-title>
+      <v-card-title>OUR PRICE LIST</v-card-title>
       <v-card-text>
         <v-form @submit.prevent="calculateTotalCost">
           <v-container v-for="(product, index) in products" :key="index">
@@ -41,8 +41,8 @@
           <v-card>
             <v-card-title class="headline">Total Cost</v-card-title>
             <v-card-text>
-              <span>Total Cost: N {{ totalCost }}</span>
-            </v-card-text>
+              <span>(NGN): {{ totalCost.toLocaleString('en-NG', { style: 'currency', currency: 'NGN' }) }}</span>
+            </v-card-text>            
             <v-card-actions>
               <v-btn
               color="surface-variant"
@@ -63,11 +63,14 @@ export default {
     return {
       products: [{ selected: [], quantities: [] }],
       productOptions: [
-        { name: 'Product A', unitPrice: 10, selected: false },
-        { name: 'Product B', unitPrice: 15, selected: false },
-        { name: 'Product C', unitPrice: 17, selected: false },
-        { name: 'Product D', unitPrice: 19, selected: false },
-        { name: 'Product E', unitPrice: 14, selected: false },
+        { name: 'Chapman', unitPrice: 2190, selected: false },
+        { name: 'Sorrel Drink (Zobo)', unitPrice: 1800, selected: false },
+        { name: 'Virgin Mojito', unitPrice: 2190, selected: false },
+        { name: 'Tropical Sunrise', unitPrice: 2190, selected: false },
+        { name: 'Ocean breeze', unitPrice: 2190, selected: false },
+        { name: 'Pina Colada', unitPrice: 2675, selected: false },
+        { name: 'Cuddles on the beach', unitPrice: 2675, selected: false },
+        { name: 'Strawberry Daiquiri', unitPrice: 2675, selected: false },
       ],
       totalCost: null,
       dialog: false,
@@ -98,6 +101,9 @@ export default {
     isSubmitDisabled() {
       // Check if any product quantity is null or negative
       return this.products.some(product => product.quantity === null || product.quantity === '' || product.quantity < 0);
+    },
+    formattedTotalCost() {
+      return this.totalCost.toLocaleString('en-US', { style: 'currency', currency: 'USD' }); // Convert to USD
     },
   },
 };
