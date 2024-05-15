@@ -289,8 +289,12 @@
     },
     methods: {
       navigateToServices() {
-    this.$router.push({ path: '/services', hash: '#other-services-rendered' });
-  },
+  this.$router.push({ path: '/services', hash: '#services' });
+  const otherServicesElement = this.$refs['services'];
+  if (otherServicesElement) {
+    otherServicesElement.scrollIntoView({ behavior: 'smooth' });
+  }
+},
   handleVideoError() {
         this.showLoading = false; // Hide loading bar
         this.showOverlay = true; // Show overlay text

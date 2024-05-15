@@ -69,7 +69,7 @@
       transition="slide-x-reverse-transition"
     >
       <v-col style="justify-content:center!important" cols="12">
-          <h5 style="font-family:bare; font-size:20px" class=" my-6" id="other-services-rendered">Other Services Rendered</h5>
+          <h5 style="font-family:bare; font-size:20px" class=" my-6" id="services">Other Services Rendered</h5>
       </v-col>
       </v-lazy>
   </v-row>
