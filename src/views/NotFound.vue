@@ -1,133 +1,52 @@
-<!-- <template>
-    <v-container>
-    <div v-for="item in iconItems"
-    :key="item.key"
-    class="section">
-        <v-icon
-        :color="item.color"
-        :icon="item.icon"
-        :size="item.size"
-        class="layer img"
-        :data-speed="speed"
-      ></v-icon>
-    </div>
-    <h2 class="layer h2">Oops the {{ resource }} you're looking for isn't here </h2>
-    <RouterLink to="/" class="layer">Back to homepage</RouterLink>
-</v-container>
-</template>
-
-<script>
-    export default {
-        name : 'NotFound',
-    data(){
-    return {
-        iconItems: [
-            {icon: 'mdi-popcorn', color: 'green', size: '40', speed: '-5'},
-            {icon:' mdi-food-fork-drink', color: 'green-darken-2', size: '20', speed: '5'},
-            {icon: 'mdi-food-off', color: 'blue', size: '40', speed: '-2'},
-            {icon: 'mdi-cup', color: 'yellow', size: '20', speed: '8'},
-            {icon: 'mdi-food', color: 'red', size: '40', speed: '-9'},
-            {icon: 'mdi-food-off', color: 'blue', size: '40', speed: '6'},
-            {icon: 'mdi-cup-off', color: 'orange', size: '40', speed: '-7'},
-            {icon: 'mdi-cup', color: 'yellow', size: '20', speed: '-5'},
-            {icon: 'mdi-popcorn', color: 'green', size: '40', speed: '7'},
-            {icon: 'mdi-cup-off', color: 'orange', size: '40', speed: '5'},
-    ],
-}
-},
-mounted() {
-    document.addEventListener("mousemove", this.parallax);
-  },
-  beforeUnmount() {
-    document.removeEventListener("mousemove", this.parallax);
-  },
-  methods: {
-    parallax(event) {
-      document.querySelectorAll('.layer').forEach(layer => {
-        const speed = parseInt(layer.getAttribute('data-speed'));
-        const x = (window.innerWidth - event.pageX * speed) / 100;
-        const y = (window.innerHeight - event.pageY * speed) / 100;
-        layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
-      });
-    }
-  }
-};
-</script>
-
-<style scoped>
-
-</style> -->
-
-
-<!-- <template>
-  <div class="parallax-container" @mousemove="updatePosition">
-    <v-img
-      class="parallax-image"
-      :src="imageSrc"
-      :style="{ transform: `translate(${x}px, ${y}px)` }"
-    ></v-img>
-  </div>
-</template>
-
-<script>
-export default {
-  name : 'NotFound',
-  data() {
-    return {
-      x: 0,
-      y: 0,
-      imageSrc: './flyer.jpg'
-    };
-  },
-  methods: {
-    updatePosition(event) {
-      const { clientX, clientY } = event;
-      const rect = event.target.getBoundingClientRect();
-      this.x = (clientX - rect.left - rect.width / 2) / 10;
-      this.y = (clientY - rect.top - rect.height / 2) / 10;
-    }
-  }
-};
-</script>
-
-<style scoped>
-.parallax-container {
-  width: 100%;
-  height: 400px; /* Adjust height as needed */
-  overflow: hidden;
-  perspective: 1000px;
-}
-
-.parallax-image {
-  width: 100%;
-  height: auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: transform 0.2s ease-out;
-}
-</style> -->
-
 
 <template>
-  <v-container>
-    <v-row align-content="center" align="center">
-    <p>
+  <v-container fluid class="container">
+    <v-row class="containerRow" align-content="center" justify="center" text-align="center">
+    <p style="font-weight: 800;">
+      <span style="font-size: 20rem; font-weight:500">404</span>
+      <br>
       Ooops!!! You've arrived on a wrong link, You're missing out on the fun!
       <br>
-      <RouterLink to="/" style="padding: 30%">Back to Homepage</RouterLink>
+      <v-col offset-sm="3" md="5">
+        <v-btn variant="outlined" to="/">Back to Homepage</v-btn>
+      </v-col>    
     </p>
   </v-row>
   </v-container>
 </template>
 
-<script setup>
+<script>
+export default {
+  mounted() {
+    var container = document.getElementsByClassName('containerRow')[0];
+    window.onmousemove = function(e){
+      var x = e.clientX, y = e.clientY;
+      container.style.backgroundPositionX = x + 'px';
+      container.style.backgroundPositionY = y + 'px';
+    }
+  }
+}
 
 </script>
 
 <style scoped>
-
+.container {
+background: linear-gradient(45deg, #706C61, #945600);
+height: 100vh;
+}
+.containerRow{
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  bottom: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('~/public/404.png'),#0f0f0f;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, .5);
+  border-radius: 10px;
+}
 span {
   animation: floatText 4s ease-in-out infinite;
 }
