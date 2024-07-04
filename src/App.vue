@@ -1,5 +1,5 @@
 <template>
-  <v-app theme="dark">
+  <v-app>
     <v-main>
       <div :style="{ }">
       <NavBar :menuItems="menuItems" :iconItems="iconItems" />

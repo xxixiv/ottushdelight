@@ -20,7 +20,7 @@
               ></video>
             </div>
             <div v-if="showOverlay" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-              <h2 style="color: white; font-size: 20px; font-weight: bold;">Ottush delight</h2>
+              <h2 style="color: white; font-size: 20px; font-weight: bold;"></h2>
             </div>
           </div>
           <template v-slot:placeholder>

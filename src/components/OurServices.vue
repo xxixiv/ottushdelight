@@ -87,21 +87,10 @@
         <template v-else-if="service.type === 'video'">
           <v-card>
           <div>
-            <video
-            class="video-container"
-              id="myVideo"
-              width="100%"
-              height="500"
-              :src="service.content"
-              @ended="resetIcon"
-            ></video>
-            <v-btn 
-            class="centered-btn"
-            @click="toggleVideo" 
-            icon
-            :class="{ 'visible-btn': showBtn }">
-              <v-icon>{{ playIcon }}</v-icon>
-            </v-btn>
+            <video class="video-container" ref="video" width="100%" height="500" :src="service.content" @ended="resetIcon(index)" ></video>
+            <v-btn class="centered-btn" @click="toggleVideo(index)" icon :class="{ 'visible-btn': showBtn }">
+              <v-icon>{{ service.playIcon }}</v-icon>
+            </v-btn>            
           </div>
           <template v-slot:placeholder>
             <v-row align="center" class="fill-height ma-0" justify="center">
@@ -146,15 +135,20 @@ export default {
         {
           name: 'Weddings',
           description: 'Description of Service 1',
-          type: 'image',
-          content: 'https://via.placeholder.com/300',
+          type: 'video',
+          content: 'vi.mp4',
+          isVideoReady: false,
+          playIcon: 'mdi:mdi-play'
+
         },
         {
           name: 'Drinks management',
           description: 'Description of Service 2',
           type: 'video',
           content: 'video.mp4',
-          isVideoReady: false
+          isVideoReady: false,
+          playIcon: 'mdi:mdi-play'
+
         },
         {
           name: 'Namings and Birthdays',
@@ -225,18 +219,17 @@ export default {
 // },
 
 
-    toggleVideo() {
-      const video = document.getElementById("myVideo");
-      if (video.paused) {
-        video.play();
-        this.playIcon = 'mdi:mdi-pause'; // update icon
-      } else {
-        video.pause();
-        this.playIcon = 'mdi:mdi-play'; // update icon
-      }
-    },
-
-
+toggleVideo(index) {
+  const video = this.$refs.video[index];
+  const service = this.services[index];
+  if (video.paused) {
+    video.play();
+    service.playIcon = 'mdi:mdi-pause';
+  } else {
+    video.pause();
+    service.playIcon = 'mdi:mdi-play';
+  }
+},
     scrollImages(direction) {
       const container = document.querySelector('.scroll-container');
       if (direction === 'left') {
@@ -261,28 +254,31 @@ export default {
     getInfiniteScrollDirection() {
       return this.$vuetify.display.smAndDown ? 'vertical' : 'horizontal';
     },
-      resetIcon() {
-      this.playIcon = 'mdi:mdi-play';
-    }
+    resetIcon(index) {
+  const service = this.services[index];
+  service.playIcon = 'mdi:mdi-play';
+}
   },
   
   mounted() {
-  const video = document.getElementById("myVideo");
-  let timeoutId = null;
-  video.addEventListener("mouseover", () => {
-    if (timeoutId) clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => {
-      this.showBtn = true;
-      this.btnVisible = true;
-    }, 100); // 100ms delay
+  const videos = this.$refs.video;
+  videos.forEach(video => {
+    let timeoutId = null;
+    video.addEventListener("mouseover", () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        this.showBtn = true;
+        this.btnVisible = true;
+      }, 100); // 100ms delay
+    });
+    video.addEventListener("mouseout", () => {
+      if (this.btnVisible) {
+        this.showBtn = false;
+        this.btnVisible = false;
+      }
+    });
   });
-  video.addEventListener("mouseout", () => {
-    if (this.btnVisible) {
-      this.showBtn = false;
-      this.btnVisible = false;
-    }
-  });
-}
+},
 }
 </script>
 

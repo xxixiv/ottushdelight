@@ -17,12 +17,20 @@
   > 
   <router-link to="/">
     <v-img
+    v-if="theme.global.current.value.dark" 
+    src="@/assets/logo.png" 
     to="/" style="cursor: pointer"
     class="logoImg ml-n5"
     :min-width="300"
-    cover
-    src="@/assets/logo.png">
+    cover>
     </v-img> 
+    <v-img 
+      v-else 
+      src="@/assets/logo b-bg.png"
+      to="/" style="cursor: pointer"
+    class="logoImg ml-n5"
+    :min-width="300"
+    cover></v-img>
   </router-link>
     <div class="mt-n16">
   <v-list
@@ -70,15 +78,26 @@
   height="80">
   <router-link to="/"
   class="">
-        <div 
-        class="img">
-        <v-img
-        class="logoImg ml-n8"
-        :width="320"
-        aspect-ratio="1/1"
-        to="/" style="cursor: pointer"
-        src="@/assets/logo.png">
-        </v-img>
+      <div 
+      class="img">
+      <v-img 
+      v-if="theme.global.current.value.dark" 
+      src="@/assets/logo.png" 
+      :width="320"
+      aspect-ratio="1/1"
+      class="logoImg ml-n8" 
+      transition="slide-y-transition" 
+      to="/" 
+      style="cursor: pointer"></v-img>
+      <v-img 
+      v-else 
+      src="@/assets/logo b-bg.png" 
+      to="/" 
+      style="cursor: pointer" 
+      :width="320" 
+      aspect-ratio="1/1"
+      class="logoImg ml-n8" 
+      transition="slide-y-transition"></v-img>
       </div>
       </router-link> 
 
@@ -129,40 +148,17 @@
         <v-icon :icon="icons.icon" size="large"  class="" style="cursor: pointer;"></v-icon>
       <!-- </a> -->
     </v-btn>
-      <!-- 
-         justify="space-between"
-    class="md-ml-12"
-   ><v-icon
-      icon="mdi-facebook"
-      size="medium"
-      class=""
-      a="https://facebook.com"
-    ></v-icon>
-
-    <v-icon
-      icon="mdi-instagram"
-      size="medium"
-      class=""
-    ></v-icon>
-
-    <v-icon
-      icon="mdi-whatsapp"
-      size="medium"
-      class=""
-    ></v-icon>
-
-    <v-icon
-      icon="mdi-email"
-      size="medium"
-      class=""
-    ></v-icon>
-
-    <v-icon
-      icon="mdi-phone"
-      size="medium"
-      class="pr-10"
-    ></v-icon> -->
+    <v-spacer></v-spacer>
     </v-row>
+    <v-lazy 
+      :min-height="auto"
+      :options="{'threshold':0.7}"
+      transition="slide-x-reverse-transition"
+    >
+    <v-btn @click="toggleTheme" style="transition: step-end;" >
+      <v-icon>mdi:mdi-theme-light-dark</v-icon>
+    </v-btn>
+  </v-lazy>
     <div class="d-md-none d-flex ml-4 toggle" 
     @click="toggleclass" 
     :class="{ 'act': sidebar }">
@@ -218,7 +214,8 @@
 position: absolute;
 width: 40px;
 height: 4px;
-background: #fff;
+background: v-bind("theme.global.current.value.dark ? 'white' : 'black'");
+transition: color 0.5s;
 border-radius: 4px;
 transition: 0.5s;
 }
@@ -255,6 +252,7 @@ transform: translateX(60px);
 </style>
 
 <script>
+import { useTheme } from 'vuetify'
 
 export default {
   name: 'NavBar',
@@ -266,6 +264,10 @@ export default {
       type: Array
     }
   },
+  setup() {
+    const theme = useTheme()
+    return { theme }
+  },
 
   data(){
     return {
@@ -275,6 +277,9 @@ export default {
   methods: {
     toggleclass() {
       this.sidebar = !this.sidebar;
+    },
+    toggleTheme() {
+      this.theme.global.name.value = this.theme.global.current.value.dark ? 'light' : 'dark'
     },
    // handleResize() {
      // window.location.reload();
