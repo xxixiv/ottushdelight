@@ -37,7 +37,7 @@
         transition="slide-x-reverse-transition"
       >
         <v-col style="justify-content:center!important" cols="12">
-            <h2 style="; font-family: sunny;">OTTUSH DELIGHT</h2>
+            <h2 style="; font-family: lofty;">OTTUSH DELIGHT</h2>
             <h5 style="font-family:bare; font-size:40px" class="pl-6">We deal in</h5>
         </v-col>
         </v-lazy>
@@ -47,8 +47,8 @@
         transition="slide-x-reverse-transition"
       >
         <v-col>
-            <h2 style="font-family: sunny; font-size:60px;" class="d-flex justify-center font-h2">OTTUSH DELIGHT</h2>
-            <h5 style="font-family: corn; font-size:30px; letter-spacing: 0.2rem;" class="justify-center font">Delightinging your buds with our Exceptional tastes</h5>
+            <h2 style="font-family: lofty; font-size:50px;" class="d-flex justify-center font-h2">OTTUSH DELIGHT</h2>
+            <h5 style="font-family: bare; font-size: 15px; letter-spacing: 0.1rem;" class="justify-center font">Delightinging your buds with our Exceptional tastes</h5>
             <v-divider ></v-divider>
             <div  v-for="(item, index) in alertItems"
             :key="index">
