@@ -140,25 +140,25 @@
       </transition>
     </v-app-bar-nav-icon> -->
     <v-row 
-    justify="center"
-    align-content="center"
-    class="d-none d-sm-flex">
-    <v-btn v-for="(icons, index) in iconItems" :key="index" class="sm-ml-n7 md-pr-0" :href="icons.a" style=" text-decoration: none;" target="_blank" rel="noopener noreferrer">
+    justify="start"
+    align-content="start"
+    class="d-none d-md-flex"> 
+    <v-btn v-for="(icons, index) in iconItems" :key="index" class="sm-ml-n7 md-pr-0" :href="icons.a" style=" text-decoration: none; transition:ease-in 0.3s" target="_blank" rel="noopener noreferrer">
       <!-- <a :href="icons.a" target="_blank" rel="noopener noreferrer" style=""> -->
         <v-icon :icon="icons.icon" size="large"  class="" style="cursor: pointer;"></v-icon>
       <!-- </a> -->
     </v-btn>
-    <v-spacer></v-spacer>
     </v-row>
-    <v-lazy 
-      :min-height="auto"
-      :options="{'threshold':0.7}"
-      transition="slide-x-reverse-transition"
-    >
-    <v-btn @click="toggleTheme" style="transition: step-end;" >
-      <v-icon>mdi:mdi-theme-light-dark</v-icon>
-    </v-btn>
-  </v-lazy>
+  
+  
+    <div class="margin-fix d-flex align-start mr-5">
+      <input type="checkbox" @click="toggleTheme" id="darkmode-toggle"/>
+      <label for="darkmode-toggle">
+        <v-icon class="sun pt-1 pl-4" style="z-index:1001" icon="fa-regular fa-sun" size="x-small"></v-icon>
+        <v-icon class="moon  pl-9" style="z-index:1001"  icon="fa-regular fa-moon" size="x-small" ></v-icon>
+      </label>
+    </div>
+  
     <div class="d-md-none d-flex ml-4 toggle" 
     @click="toggleclass" 
     :class="{ 'act': sidebar }">
@@ -171,6 +171,67 @@
 </template>
 
 <style scoped>
+.sun{
+  color: v-bind("theme.global.current.value.dark ? '#d88603' : 'white'");
+}
+
+label {
+  width: 70px;
+  height: 29px;
+  position: relative;
+  display: block!important;
+  background: #ebebeb;
+  border-radius: 15px;
+  box-shadow: inset 0px 5px 10px rgba(0,0,0,0.4), inset 0px -5px 10px rgba(255,255,255,0.4)!important;
+  transition: 0.3s;
+  cursor: pointer!important;
+}
+
+label:after {
+ content: "";
+  width: 23px;
+  height: 23px;
+  position: absolute!important;
+  top: 3px;
+  left: 5px;
+  background: linear-gradient(180deg, #ffcc89,#d88603);
+  border-radius: 15px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+  transition: 0.3s;
+
+}
+input:checked + label {
+  background: #242424!important;
+}
+
+input:checked + label:after {
+  transform: translate(160%)!important;
+  background: linear-gradient(180deg, #777, #3a3a3a)!important;
+}
+
+input:checked,
+input {
+  visibility: hidden!important;
+}
+.margin-fix {
+  margin-left: 20px!important;
+}
+
+@media (max-width: 950px) {
+  .margin-fix {
+    margin-left: 10px!important;
+    margin-right: 20px!important;
+  }
+}
+
+@media (max-width: 600px) {
+  .margin-fix {
+    margin-left: 5px!important;
+  }
+}
+
+
+
 .img.v-img.logoImg {
   /* Default size */
   width: 250px!important; /* Adjust as needed */
@@ -196,13 +257,12 @@
   background-color: rgba(#fff, 0.8);
 }
 .toggle{
-  transform: scale(50%);
   position: relative;
-  width: 75px;
-  height: 70px;
+  width: 40px;
+  height: 37px;
   background: transparent;
    box-shadow: 0 10px 20px rgba(92, 92, 92, 0.08);
-  border-radius: 10px;
+  border-radius: 5px;
   justify-content: center;
   align-items: center;
   cursor: pointer;
@@ -211,8 +271,9 @@
 }
 
 .toggle span{
+transform: scale(70%);
 position: absolute;
-width: 40px;
+width: 20px;
 height: 4px;
 background: v-bind("theme.global.current.value.dark ? 'white' : 'black'");
 transition: color 0.5s;
@@ -221,32 +282,32 @@ transition: 0.5s;
 }
 
 .toggle span:nth-child(1){
-transform: translateY(-15px);
-width: 25px;
-left: 15px;
+transform: translateY(-15px) scale(80%);
+width: 20px;
+
 }
 
 .toggle.act span:nth-child(1){
-width: 40px;
-transform: translateY(0px) rotate(45deg);
+width: 30px;
+transform: translateY(0px) scale(80%) rotate(45deg);
 transition-delay: 0.125s;
 }
 
 
 .toggle span:nth-child(2){
 transform: translateY(15px);
-width: 15px;
-left: 15px;
+width: 10px;
+
 }
 
 .toggle.act span:nth-child(2){
-width: 40px;
-transform: translateY(0px) rotate(315deg);
+width: 30px;
+transform: translateY(0px) scale(80%) rotate(315deg);
 transition-delay: 0.25s;
 }
 
 .toggle.act span:nth-child(3){
-transform: translateX(60px);
+transform: translateX(60px) scale(50%);
 }
 
 </style>
