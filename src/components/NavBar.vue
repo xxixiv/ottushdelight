@@ -76,6 +76,7 @@
 
   <v-app-bar app
   height="80">
+  <v-sheet style="width: 200px;">
   <router-link to="/"
   class="">
       <div 
@@ -100,7 +101,7 @@
       transition="slide-y-transition"></v-img>
       </div>
       </router-link> 
-
+</v-sheet>
       <div class="d-none d-md-flex flex-grow-1  justify-content-center">
     <v-btn
         v-for="item in menuItems"
@@ -139,33 +140,30 @@
         </template>
       </transition>
     </v-app-bar-nav-icon> -->
-    <v-row 
+    <v-sheet 
     justify="start"
     align-content="start"
-    class="d-none d-md-flex"> 
+    class="d-none d-sm-flex"> 
     <v-btn v-for="(icons, index) in iconItems" :key="index" class="sm-ml-n7 md-pr-0" :href="icons.a" style=" text-decoration: none; transition:ease-in 0.3s" target="_blank" rel="noopener noreferrer">
       <!-- <a :href="icons.a" target="_blank" rel="noopener noreferrer" style=""> -->
         <v-icon :icon="icons.icon" size="large"  class="" style="cursor: pointer;"></v-icon>
       <!-- </a> -->
     </v-btn>
-    </v-row>
+    </v-sheet>
   
   
-    <div class="margin-fix d-flex align-start mr-5">
-      <input type="checkbox" @click="toggleTheme" id="darkmode-toggle"/>
-      <label for="darkmode-toggle">
-        <v-icon class="sun pt-1 pl-4" style="z-index:1001" icon="fa-regular fa-sun" size="x-small"></v-icon>
-        <v-icon class="moon  pl-9" style="z-index:1001"  icon="fa-regular fa-moon" size="x-small" ></v-icon>
-      </label>
-    </div>
+    <v-sheet class="margin-fix d-flex ml-n9 align-start mr-5">
+      <night-mode />
+    </v-sheet>
   
-    <div class="d-md-none d-flex ml-4 toggle" 
+    <div class="d-md-none d-flex  toggle" 
     @click="toggleclass" 
     :class="{ 'act': sidebar }">
       <span></span>
       <span></span>
       <span></span>
 </div>
+
   </v-app-bar>
   
 </template>
@@ -257,12 +255,13 @@ input {
   background-color: rgba(#fff, 0.8);
 }
 .toggle{
+  transform: scale(50%);
   position: relative;
-  width: 40px;
-  height: 37px;
+  width: 75px;
+  height: 70px;
   background: transparent;
    box-shadow: 0 10px 20px rgba(92, 92, 92, 0.08);
-  border-radius: 5px;
+  border-radius: 10px;
   justify-content: center;
   align-items: center;
   cursor: pointer;
@@ -271,9 +270,8 @@ input {
 }
 
 .toggle span{
-transform: scale(70%);
 position: absolute;
-width: 20px;
+width: 40px;
 height: 4px;
 background: v-bind("theme.global.current.value.dark ? 'white' : 'black'");
 transition: color 0.5s;
@@ -282,41 +280,45 @@ transition: 0.5s;
 }
 
 .toggle span:nth-child(1){
-transform: translateY(-15px) scale(80%);
-width: 20px;
-
+transform: translateY(-15px);
+width: 25px;
+left: 15px;
 }
 
 .toggle.act span:nth-child(1){
-width: 30px;
-transform: translateY(0px) scale(80%) rotate(45deg);
+width: 40px;
+transform: translateY(0px) rotate(45deg);
 transition-delay: 0.125s;
 }
 
 
 .toggle span:nth-child(2){
 transform: translateY(15px);
-width: 10px;
-
+width: 15px;
+left: 15px;
 }
 
 .toggle.act span:nth-child(2){
-width: 30px;
-transform: translateY(0px) scale(80%) rotate(315deg);
+width: 40px;
+transform: translateY(0px) rotate(315deg);
 transition-delay: 0.25s;
 }
 
 .toggle.act span:nth-child(3){
-transform: translateX(60px) scale(50%);
+transform: translateX(60px);
 }
 
 </style>
 
 <script>
 import { useTheme } from 'vuetify'
+import nightMode from './nightMode.vue';
 
 export default {
   name: 'NavBar',
+  components: {
+    nightMode
+  },
   props: {
     menuItems:{
       type: Array
@@ -356,5 +358,5 @@ export default {
   beforeUnmount() {
     window.removeEventListener('resize', this.handleResize);
   },
-};
+}
 </script>

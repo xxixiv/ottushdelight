@@ -3,7 +3,7 @@
   <v-container fluid class="container">
     <v-row class="containerRow" align-content="center" justify="center" text-align="center">
     <p style="font-weight: 800;">
-      <span style="font-size: 20rem; font-weight:500">404</span>
+      <span class="" style="font-size: 8rem; font-weight:500">404</span>
       <br>
       Ooops!!! You've arrived on a wrong link, You're missing out on the fun!
       <br>

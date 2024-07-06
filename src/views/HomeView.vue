@@ -47,12 +47,12 @@
         transition="slide-x-reverse-transition"
       >
         <v-col>
-            <h2 style="font-family: lofty; font-size:50px;" class="d-flex justify-center font-h2">OTTUSH DELIGHT</h2>
-            <h5 style="font-family: bare; font-size: 15px; letter-spacing: 0.1rem;" class="justify-center font">Delightinging your buds with our Exceptional tastes</h5>
+            <h2 style="font-family: lofty; font-size:40px; font-weight:200;" class="d-flex justify-center font-h2 font-size-responsive">OTTUSH DELIGHT</h2>
+            <h5 style="font-family: feas; font-size: 25px; letter-spacing: 0.1rem;" class="justify-center font fonty">Delightinging your buds with our Exceptional tastes</h5>
             <v-divider ></v-divider>
             <div  v-for="(item, index) in alertItems"
             :key="index">
-            <h6 style="font-family: corn; font-size:30px;" class="py-5">{{ item.name }} <v-btn class="align-right" variant="plain" @click="navigateToServices" >
+            <h6 style="font-size:20px;" class="py-5">{{ item.name }} <v-btn class="align-right" variant="plain" @click="navigateToServices" >
               <v-icon>mdi:mdi-chevron-right</v-icon>
             </v-btn>
              </h6>
@@ -94,41 +94,7 @@
            </v-timeline>
           </v-lazy>
         </v-col>
-        <!-- <v-col v-else>
-          <v-timeline direction="horizontal">
-            <v-timeline-item dot-color="amber">
-              <div>
-                <div class="text-h6">What We Do</div>
-              </div>
-            </v-timeline-item>
-            <v-timeline-item>
-              <template v-slot:opposite>
-                <v-alert color="dark" icon="mdi-information" :value="true">
-                  Book us for any of your Events
-                </v-alert>
-              </template>
-              <div>
-                <div class="text-h6">Content title</div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-              </div>
-            </v-timeline-item>
-            <v-timeline-item>
-              <template v-slot:opposite>
-                <v-alert color="dark" icon="mdi-information" :value="true">
-                  We handle events like yours no pressure
-                </v-alert>
-              </template>
-              <div>
-                <div class="text-h6">Content title</div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-              </div>
-            </v-timeline-item>
-          </v-timeline>
-        </v-col> -->
+      
       </v-row>
       <v-divider class="mt-5"></v-divider>
       <v-row justify-md="flex-start" class="d-flex">
@@ -316,14 +282,34 @@
   </script>
 
   <style scoped>
+  @media only screen and (max-width: 600px) {
+    .font-size-responsive {
+      font-size: 45px!important;
+    }
+    .font {
+      font-size: 20px!important;
+  }
+  }
+
+  
+  @media only screen and (min-width: 601px) {
+    .font-size-responsive {
+      font-size: 50px!important;
+    }
+    .font {
+      font-size: 25px!important;
+  }
+  }
+  
   @media only screen and (max-width: 450px) {
     .font {
-        font-size: 18px!important;
+        font-size: 19px!important;
         letter-spacing: 0.05rem!important;
     }
-    .font-h2 {
-      font-size: 48px!important;
+    .font-size-responsive {
+      font-size: 30px!important;
     }
+  
 
 }
 

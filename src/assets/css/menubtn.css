@@ -13,12 +13,6 @@
     src: url('@/assets/fonts/Barely.ttf') format('truetype');
   }
 
-
-  @font-face {
-    font-family: 'feas';
-    src: url('@/assets/fonts/Feasibly.ttf') format('truetype');
-  }
-
   @font-face {
     font-family: 'wig';
     src: url('@/assets/fonts/wiggly.ttf') format('truetype');
