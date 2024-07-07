@@ -48,7 +48,7 @@
       >
         <v-col>
             <h2 style="font-family: lofty; font-size:40px; font-weight:200;" class="d-flex justify-center font-h2 font-size-responsive">OTTUSH DELIGHT</h2>
-            <h5 style="font-family: feas; font-size: 25px; letter-spacing: 0.1rem;" class="justify-center font fonty">Delightinging your buds with our Exceptional tastes</h5>
+            <h5 style="font-size: 25px; letter-spacing: 0.1rem;" class="justify-center font fonty">Delightinging your buds with our Exceptional tastes</h5>
             <v-divider ></v-divider>
             <div  v-for="(item, index) in alertItems"
             :key="index">
