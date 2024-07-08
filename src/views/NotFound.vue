@@ -17,6 +17,7 @@
 
 <script>
 export default {
+  name: 'NotFound',
   mounted() {
     var container = document.getElementsByClassName('containerRow')[0];
     window.onmousemove = function(e){
