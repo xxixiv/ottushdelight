@@ -4,14 +4,15 @@
         <v-col cols="12" 
         style="padding:0 0!important;">
           <div style="position: relative;">
-            <div style="height:450px; background: #313131; opacity: 0.8; align-content:center">
+            <div style="height:450px; background: #313131; opacity: 0.855; align-content:center">
 
               <video
+              class="pt-1 px-1"
               style="object-fit: cover!important;"
                 ref="videoPlayer"
                 src="./vid2.mp4"
                 width="100%"
-                height="96%" 
+                height="100%" 
                 loop
                 muted
                 autoplay
