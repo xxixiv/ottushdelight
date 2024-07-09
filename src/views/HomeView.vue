@@ -10,7 +10,7 @@
               class="pt-1 px-1"
               style="object-fit: cover!important;"
                 ref="videoPlayer"
-                src="./vid2.mp4"
+                src="./vid2.webm"
                 width="100%"
                 height="100%" 
                 loop
@@ -18,7 +18,15 @@
                 autoplay
                 @error="handleVideoError"  
                 @loadedmetadata="handleVideoLoaded"
-              ></video>
+              >
+              <v-sheet>
+              <template v-slot:placeholder>
+                <v-row align="center" class="fill-height ma-0" justify="center">
+                  <v-progress-circular  color="grey-lighten-5" indeterminate></v-progress-circular>
+                </v-row>
+              </template>
+            </v-sheet>
+            </video>
             </div>
             <div v-if="showOverlay" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
               <h2 style="color: white; font-size: 20px; font-weight: bold;"></h2>
