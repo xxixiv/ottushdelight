@@ -16,8 +16,7 @@
                 loop
                 muted
                 autoplay
-                @error="handleVideoError"  
-                @loadedmetadata="handleVideoLoaded"
+                preload="metadata"
               >
               <v-sheet>
               <template v-slot:placeholder>
