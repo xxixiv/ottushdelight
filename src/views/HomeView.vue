@@ -10,7 +10,7 @@
               class="pt-1 px-1"
               style="object-fit: cover!important;"
                 ref="videoPlayer"
-                src="./vid2.webm"
+                src="./vid2.mp4"
                 width="100%"
                 height="100%" 
                 loop
