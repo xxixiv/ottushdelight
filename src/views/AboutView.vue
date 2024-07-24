@@ -28,7 +28,7 @@
     </v-col>
   </v-row>
   <v-row>
-    <v-lazy 
+    <v-lazy v-show="false"
     :min-height="auto"
     :options="{'threshold':0.7}"
     transition="slide-x-reverse-transition"
@@ -38,7 +38,7 @@
     </v-col>
     </v-lazy>
   </v-row>
-  <v-lazy 
+  <v-lazy v-show="false"
   :min-height="auto"
   :options="{'threshold':0.7}"
   transition="slide-y-reverse-transition"

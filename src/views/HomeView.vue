@@ -13,7 +13,6 @@
                 width="100%"
                 height="100%" 
                 loop
-                
                 autoplay
                 preload
               >
@@ -197,7 +196,7 @@
             transition="slide-x-transition"
           >
             <v-col justify-md="space-around">
-                <h6 style="font-family:corn; font-size:20px" class="pl-2 ">Get a qouta for your events here</h6>
+                <h6 style="font-family:corn; font-size:20px font-weight:200; letter-spacing:0.1em;" class="pl-2 ">Get a qouta for your events here</h6>
             </v-col>
             </v-lazy>
           </v-col>
