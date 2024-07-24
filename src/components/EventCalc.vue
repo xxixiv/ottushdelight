@@ -1,13 +1,14 @@
 <template>
   <v-col :cols="$vuetify.display.smAndDown ? 12 : 6">
     <v-card>
-      <v-card-title>OUR PRICE LIST</v-card-title>
+      <v-card-title style="font-family: Montserrat;">OUR PRICE LIST</v-card-title>
       <v-card-text>
         <v-form @submit.prevent="calculateTotalCost">
           <v-container v-for="(product, index) in products" :key="index">
             <v-row>
               <v-col cols="12" md="6">
                 <v-combobox
+                style="font-family: Montserrat;"
                   chips
                   multiple
                   clearable
@@ -20,7 +21,8 @@
             </v-row>
             <v-row v-if="product.selected.length > 0">
               <v-col v-for="(selectedProduct, selectedIndex) in product.selected" :key="selectedIndex" cols="12" md="6">
-                <v-text-field 
+                <v-text-field
+                style="font-family: Montserrat;!important" 
                   v-model="product.quantities[selectedIndex]" 
                   :label="'Quantity for ' + selectedProduct" 
                   type="number"
@@ -32,11 +34,11 @@
           </v-container>
           <v-row>
             <v-col cols="12">
-              <v-btn type="submit" color="light" :disabled="isSubmitDisabled">Calculate Total Cost</v-btn>
+              <v-btn style="font-family: Montserrat;" type="submit" color="light" :disabled="isSubmitDisabled">Calculate Total Cost</v-btn>
             </v-col>
           </v-row>
         </v-form>
-        <v-dialog v-model="dialog" max-width="auto"
+        <v-dialog style="font-family: Montserrat;" v-model="dialog" max-width="auto"
           transition="dialog-bottom-transition">
           <v-card>
             <v-card-title class="headline">Total Cost</v-card-title>
@@ -45,6 +47,7 @@
             </v-card-text>            
             <v-card-actions>
               <v-btn
+              style="font-family: Montserrat;"
               color="surface-variant"
               variant="tonal"
               @click="dialog = false">Close</v-btn>

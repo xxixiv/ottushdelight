@@ -19,6 +19,9 @@
   </v-app>
 </template>
 <style>
+body{
+  font-family: Montserrat;
+}
 .fade-enter {
   opacity: 0;
 }

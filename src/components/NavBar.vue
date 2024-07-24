@@ -10,7 +10,7 @@
       </v-img>
     
   </div> -->
-  <v-navigation-drawer v-model="sidebar" app
+  <v-navigation-drawer style="font-family: Montserrat;" v-model="sidebar" app
   class="d-md-none"
   floating
   temporary
@@ -104,6 +104,7 @@
 </v-sheet>
       <div class="d-none d-md-flex flex-grow-1  justify-content-center">
     <v-btn
+    style="font-family: Montserrat;"
         v-for="item in menuItems"
         :key="item.title"
         :to="item.path"
@@ -123,6 +124,7 @@
         :elevation="isHovering ? 16 : 2"
         :color="isHovering ? 'amber-lighten-2' : undefined"
         v-bind="props"
+        style="font-family: Montserrat;"
         outlined
        >
         {{ item.title }}

@@ -4,29 +4,24 @@
         <v-col cols="12" 
         style="padding:0 0!important;">
           <div style="position: relative;">
-            <div style="height:450px; background: #313131; opacity: 0.855; align-content:center">
-
+            <div v-if="videos.length > 0" style="height:450px; background: #313131; opacity: 0.855; align-content:center">
               <video
               class="pt-1 px-1"
               style="object-fit: cover!important;"
                 ref="videoPlayer"
-                src="./vid2.mp4"
+                :src="videos[selectedVideoIndex].src"
                 width="100%"
                 height="100%" 
                 loop
                 muted
                 autoplay
-                preload="metadata"
+                preload
               >
-              <v-sheet>
-              <template v-slot:placeholder>
-                <v-row align="center" class="fill-height ma-0" justify="center">
-                  <v-progress-circular  color="grey-lighten-5" indeterminate></v-progress-circular>
-                </v-row>
-              </template>
-            </v-sheet>
-            </video>
+               
+              </video>
             </div>
+             
+            
             <div v-if="showOverlay" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
               <h2 style="color: white; font-size: 20px; font-weight: bold;"></h2>
             </div>
@@ -55,12 +50,12 @@
         transition="slide-x-reverse-transition"
       >
         <v-col>
-            <h2 style="font-family: lofty; font-size:40px; font-weight:200;" class="d-flex justify-center font-h2 font-size-responsive">OTTUSH DELIGHT</h2>
-            <h5 style="font-size: 25px; letter-spacing: 0.1rem;" class="justify-center font fonty">Delightinging your buds with our Exceptional tastes</h5>
+            <h2 style="font-family: pacifico; font-size:40px; font-weight:200;" class="d-flex justify-center font-h2 font-size-responsive mb-7 pt-10">OTTUSH DELIGHT</h2>
+            <h5 style="font-family: Montserrat; font-size: 25px; letter-spacing: 0.1rem;" class="pt-5 pb-5 justify-center font fonty">Delightinging your buds with our Exceptional tastes</h5>
             <v-divider ></v-divider>
             <div  v-for="(item, index) in alertItems"
             :key="index">
-            <h6 style="font-size:20px;" class="py-5">{{ item.name }} <v-btn class="align-right" variant="plain" @click="navigateToServices" >
+            <h6 style="font-size:20px; font-family: Montserrat;" class="py-5">{{ item.name }} <v-btn class="align-right" variant="plain" @click="navigateToServices" >
               <v-icon>mdi:mdi-chevron-right</v-icon>
             </v-btn>
              </h6>
@@ -113,7 +108,7 @@
         :options="{'threshold':0.7}"
         transition="slide-x-reverse-transition"
       >
-            <h5 style="font-family: corn; font-size:20px" class="pl-6 my-6 sm-mx-6">The Ottush Deight moments</h5>
+            <h5 style="font-family: corn; font-weight:200; letter-spacing:0.1em; font-size:20px" class="pl-6 my-6 sm-mx-6">The Ottush Deight moments</h5>
           </v-lazy>
           </v-col>
         
@@ -124,7 +119,7 @@
                 :options="{'threshold':0.7}"
                 transition="slide-x-transition"
               >
-                    <h6 style="font-family:corn; font-size:20px" class="mt-6">Get a qouta for your events here</h6>
+                    <h6 style="font-family:corn; font-weight:200; font-size:20px; letter-spacing:0.1em" class="mt-6">Get a qouta for your events here</h6>
                 </v-lazy>
 
          </v-col> 
@@ -224,6 +219,12 @@
       return {
         showLoading: false,
         showOverlay: true,
+        videos: [
+        { src: './video 2.mp4' },
+        { src: './video 1.mp4' },
+      ],
+      selectedVideoIndex: 0,
+
         carouselItems: [
           { type: 'image', src: "/images 10.jpg", aspectRatio: 16 / 9 },
           { type: 'image', src: "/images 9.jpg", aspectRatio: 16 / 9 },
@@ -252,14 +253,10 @@
     };
   },
     mounted() {
-      // Check screen size on mount and set the initial height
-      // this.setVideoHeight();
-      // Listen for window resize events to adjust height accordingly
-      window.addEventListener('resize', this.setVideoHeight);
+      this.selectRandomVideo();
+
     },
     beforeUnmount() {
-      // Remove event listener to prevent memory leaks
-      window.removeEventListener('resize', this.setVideoHeight);
     },
     methods: {
       navigateToServices() {
@@ -269,22 +266,9 @@
     otherServicesElement.scrollIntoView({ behavior: 'smooth' });
   }
 },
-  handleVideoError() {
-        this.showLoading = false; // Hide loading bar
-        this.showOverlay = true; // Show overlay text
-      },    handleCarouselChange() {
-        // Pause the video when switching carousel items
-        const videoPlayer = this.$refs.videoPlayer;
-        if (videoPlayer && videoPlayer.tagName === 'VIDEO') {
-          videoPlayer.pause();
-        }
-      },
-      // setVideoHeight() {
-      //   this.videoHeight = $vuetify.display.smAndDown ? '70%' : '50%';
-      // },
-      handleVideoLoaded() {
-        this.showLoading = false; // Hide loading indicator once the video is loaded
-      },
+    selectRandomVideo() {
+      this.selectedVideoIndex = Math.floor(Math.random() * this.videos.length);
+    },
     },
 };
   </script>
