@@ -7,7 +7,7 @@
         transition="slide-x-reverse-transition"
       >
         <v-col cols="12">
-            <v-toolbar-title style="font-family: lofty; font-size: 25px" class="my-4">Who we are</v-toolbar-title>
+            <v-toolbar-title style="font-family: Pacifico; font-size: 25px" class="my-4">Who we are</v-toolbar-title>
         </v-col>
         </v-lazy>
         </v-row>

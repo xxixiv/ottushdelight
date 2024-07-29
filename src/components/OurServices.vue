@@ -8,7 +8,7 @@
         transition="slide-x-reverse-transition"
       >
         <v-col cols="12">
-            <h5 style="font-family:bare; font-size:20px" class="pl-6 my-6">Our Drinks Gallery</h5>
+            <h5 style="font-family:Pacifico; font-size:20px" class="pl-6 my-6">Our Drinks Gallery</h5>
         </v-col>
         </v-lazy>
     </v-row>
@@ -69,7 +69,7 @@
       transition="slide-x-reverse-transition"
     >
       <v-col style="justify-content:center!important" cols="12">
-          <h5 style="font-family:bare; font-size:20px" class=" my-6" id="services">Other Services Rendered</h5>
+          <h5 style="font-family: Pacifico; font-size:20px" class=" my-6" id="services">Other Services Rendered</h5>
       </v-col>
       </v-lazy>
   </v-row>
@@ -87,7 +87,9 @@
         <template v-else-if="service.type === 'video'">
           <v-card>
           <div>
-            <video class="video-container" ref="video" width="100%" height="500" :src="service.content" @ended="resetIcon(index)" ></video>
+            <video class="video-container" ref="video" width="100%" height="500" :src="service.content" @ended="resetIcon(index)" >
+              
+            </video>
             <v-btn class="centered-btn" @click="toggleVideo(index)" icon :class="{ 'visible-btn': showBtn }">
               <v-icon>{{ service.playIcon }}</v-icon>
             </v-btn>            

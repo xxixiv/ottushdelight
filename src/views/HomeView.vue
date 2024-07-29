@@ -13,6 +13,7 @@
                 width="100%"
                 height="100%" 
                 loop
+                muted
                 autoplay
                 preload
               >
@@ -49,8 +50,8 @@
         transition="slide-x-reverse-transition"
       >
         <v-col>
-            <h2 style="font-family: pacifico; font-size:40px; font-weight:200;" class="d-flex justify-center font-h2 font-size-responsive mb-7 pt-10">OTTUSH DELIGHT</h2>
-            <h5 style="font-family: Montserrat; font-size: 25px; letter-spacing: 0.1rem;" class="pt-5 pb-5 justify-center font fonty">Delightinging your buds with our Exceptional tastes</h5>
+            <h2 style="font-family: BodoniSC; font-size:60px; font-weight:400;" class="d-flex justify-center font-h2 font-size-responsive mb-7 pt-10">OTTUSH DELIGHT</h2>
+            <h5 style="font-family: Montserrat; font-size: 25px; letter-spacing: 0.1rem;" class="pt-5 pb-5 justify-center font fonty">Delighting your buds with our Exceptional tastes</h5>
             <v-divider ></v-divider>
             <div  v-for="(item, index) in alertItems"
             :key="index">
@@ -118,7 +119,7 @@
                 :options="{'threshold':0.7}"
                 transition="slide-x-transition"
               >
-                    <h6 style="font-family:corn; font-weight:200; font-size:20px; letter-spacing:0.1em" class="mt-6">Get a qouta for your events here</h6>
+                    <h6 style="font-family:corn; font-weight:200; font-size:20px; letter-spacing:0.1em" class="mt-6">Get a qoute for your events here</h6>
                 </v-lazy>
 
          </v-col> 
@@ -196,7 +197,7 @@
             transition="slide-x-transition"
           >
             <v-col justify-md="space-around">
-                <h6 style="font-family:corn; font-size:20px font-weight:200; letter-spacing:0.1em;" class="pl-2 ">Get a qouta for your events here</h6>
+                <h6 style="font-family:corn; font-size:20px font-weight:200; letter-spacing:0.1em;" class="pl-2 ">Get a qoute for your events here</h6>
             </v-col>
             </v-lazy>
           </v-col>

@@ -2,7 +2,7 @@
   <v-container>
     <v-row justify="space-around">
         <v-col cols="12">
-            <h1>Contact <span style="font-family: bare;">OTTUSH DELIGHT</span> today</h1>
+            <h1>Contact <span style="font-family: Bodoni;">OTTUSH DELIGHT</span> today</h1>
         </v-col>
     </v-row>
     <v-row>
